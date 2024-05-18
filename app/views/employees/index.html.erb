@@ -61,7 +61,7 @@
         <label for="base_box" class="form-label">
           Base
         </label>
-        
+
         <input type="text" id="base_box" name="query_base" class="form-control">
       </div>
 
@@ -118,7 +118,7 @@
     <table class="table table-striped">
       <tr>
         <th>
-          ID
+          Employee ID
         </th>
 
         <th>
@@ -130,49 +130,19 @@
         </th>
 
         <th>
-          Phone
-        </th>
-
-        <th>
           Base
         </th>
-
         <th>
-          Position
-        </th>
-
-        <th>
-          Emp
-        </th>
-
-        <th>
-          Doh
-        </th>
-
-        <th>
-          Access
-        </th>
-
-        <th>
-          Image
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
+          DOH
         </th>
       </tr>
 
       <% @list_of_employees.each do |an_employee| %>
       <tr>
         <td>
-          <%= an_employee.id %>
+           <a href="/employees/<%= an_employee.emp_id %>">
+            <%= an_employee.emp_id %>
+          </a>  
         </td>
 
         <td>
@@ -184,44 +154,11 @@
         </td>
 
         <td>
-          <%= an_employee.phone %>
-        </td>
-
-        <td>
           <%= an_employee.base %>
         </td>
 
         <td>
-          <%= an_employee.position %>
-        </td>
-
-        <td>
-          <%= an_employee.emp_id %>
-        </td>
-
-        <td>
           <%= an_employee.doh %>
-        </td>
-
-        <td>
-          <%= an_employee.access %>
-        </td>
-
-        <td>
-          <%= an_employee.image %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(an_employee.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_employee.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/employees/<%= an_employee.emp_id %>">
-            Show details
-          </a>
         </td>
       </tr>
       <% end %>

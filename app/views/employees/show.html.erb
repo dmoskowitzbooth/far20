@@ -9,13 +9,13 @@
     <h1>
       <%= @the_employee.first_name %> <%= @the_employee.last_name %>
     </h1>
-            <div>
-      <% if @max_disciplines.level=="TERM" %>
-        <h4 style= "color: red">TERMINATED</h4>
-      <% else %>
-        <h4 style= "color: green">Active</h4>
-      <% end %>
-    </div>
+<div>
+  <% if @max_disciplines.present? && @max_disciplines.level == "TERM" %>
+    <h4 style="color: red">TERMINATED</h4>
+  <% else %>
+    <h4 style="color: green">Active</h4>
+  <% end %>
+</div>
 
       <dd>
         <td><img src="<%=@the_employee.image %>" style="width:250px;"></td>
@@ -30,6 +30,13 @@
         <%= @the_employee.emp_id %>
       </dd>
             <dt>
+        Base
+      </dt>
+      <dd>
+        <%= @the_employee.base %>
+      </dd>
+      <dt>
+            <dt>
         Email
       </dt>
       <dd>
@@ -42,13 +49,7 @@
         <%= @the_employee.phone %>
       </dd>
 
-      <dt>
-        Base
-      </dt>
-      <dd>
-        <%= @the_employee.base %>
-      </dd>
-      <dt>
+
         Doh
       </dt>
       <dd>
@@ -84,6 +85,10 @@
           Note
         </th>
 
+           <th>
+          Supervisor
+        </th>
+
       </tr>
 
       <% @list_of_notes.each do |a_note| %>
@@ -101,6 +106,11 @@
 
         <td>
           <%= a_note.note %>
+        </td>
+
+         <td>
+          <%= a_note.supervisor.first_name %>
+          <%= a_note.supervisor.last_name %>
         </td>
 
       </tr>
@@ -172,7 +182,8 @@
           <%= a_discipline.expires %>
         </td>
         <td>
-          <%= a_discipline.sup_id %>
+          <%= a_discipline.supervisor.first_name %>
+          <%= a_discipline.supervisor.last_name %>
         </td>
 
         <td>
@@ -243,7 +254,8 @@
         </td>
 
         <td>
-          <%= a_discipline.sup_id %>
+          <%= a_discipline.supervisor.first_name %>
+          <%= a_discipline.supervisor.last_name %>
         </td>
 
       </tr>

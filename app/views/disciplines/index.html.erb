@@ -1,0 +1,214 @@
+<div>
+  <div>
+    <h1>
+      List of all disciplines
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new discipline
+    </h2>
+
+    <form action="/insert_discipline" method="post">
+      <div>
+        <label for="emp_id_box">
+          Emp
+        </label>
+
+        <input type="text" id="emp_id_box" name="query_emp_id">
+      </div>
+
+      <div>
+        <label for="sup_id_box">
+          Sup
+        </label>
+
+        <input type="text" id="sup_id_box" name="query_sup_id">
+      </div>
+
+      <div>
+        <label for="level_box">
+          Level
+        </label>
+
+        <input type="text" id="level_box" name="query_level">
+      </div>
+
+      <div>
+        <label for="effective_box">
+          Effective
+        </label>
+
+        <input type="date" id="effective_box" name="query_effective">
+      </div>
+
+      <div>
+        <label for="expires_box">
+          Expires
+        </label>
+
+        <input type="date" id="expires_box" name="query_expires">
+      </div>
+
+      <div>
+        <label for="reason_box">
+          Reason
+        </label>
+
+        <input type="text" id="reason_box" name="query_reason">
+      </div>
+
+      <div>
+        <label for="expectations_box">
+          Expectations
+        </label>
+
+        <input type="text" id="expectations_box" name="query_expectations">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes">
+      </div>
+
+      <div>
+        <label for="title_for_box">
+          Title for
+        </label>
+
+        <input type="text" id="title_for_box" name="query_title_for">
+      </div>
+
+      <button>
+        Create discipline
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Emp
+        </th>
+
+        <th>
+          Sup
+        </th>
+
+        <th>
+          Level
+        </th>
+
+        <th>
+          Effective
+        </th>
+
+        <th>
+          Expires
+        </th>
+
+        <th>
+          Reason
+        </th>
+
+        <th>
+          Expectations
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Title for
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_disciplines.each do |a_discipline| %>
+      <tr>
+        <td>
+          <%= a_discipline.id %>
+        </td>
+
+        <td>
+          <%= a_discipline.emp_id %>
+        </td>
+
+        <td>
+          <%= a_discipline.sup_id %>
+        </td>
+
+        <td>
+          <%= a_discipline.level %>
+        </td>
+
+        <td>
+          <%= a_discipline.effective %>
+        </td>
+
+        <td>
+          <%= a_discipline.expires %>
+        </td>
+
+        <td>
+          <%= a_discipline.reason %>
+        </td>
+
+        <td>
+          <%= a_discipline.expectations %>
+        </td>
+
+        <td>
+          <%= a_discipline.notes %>
+        </td>
+
+        <td>
+          <%= a_discipline.title_for %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_discipline.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_discipline.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/disciplines/<%= a_discipline.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

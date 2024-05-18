@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Discipline #<%= @the_discipline.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/disciplines">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_discipline/<%= @the_discipline.id %>">
+          Delete discipline
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Emp
+      </dt>
+      <dd>
+        <%= @the_discipline.emp_id %>
+      </dd>
+
+      <dt>
+        Sup
+      </dt>
+      <dd>
+        <%= @the_discipline.sup_id %>
+      </dd>
+
+      <dt>
+        Level
+      </dt>
+      <dd>
+        <%= @the_discipline.level %>
+      </dd>
+
+      <dt>
+        Effective
+      </dt>
+      <dd>
+        <%= @the_discipline.effective %>
+      </dd>
+
+      <dt>
+        Expires
+      </dt>
+      <dd>
+        <%= @the_discipline.expires %>
+      </dd>
+
+      <dt>
+        Reason
+      </dt>
+      <dd>
+        <%= @the_discipline.reason %>
+      </dd>
+
+      <dt>
+        Expectations
+      </dt>
+      <dd>
+        <%= @the_discipline.expectations %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_discipline.notes %>
+      </dd>
+
+      <dt>
+        Title for
+      </dt>
+      <dd>
+        <%= @the_discipline.title_for %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_discipline.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_discipline.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit discipline
+    </h2>
+
+    <form action="/modify_discipline/<%= @the_discipline.id %>"  method="post" >
+      <div>
+        <label for="emp_id_box">
+          Emp
+        </label>
+
+        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_discipline.emp_id %>">
+      </div>
+
+      <div>
+        <label for="sup_id_box">
+          Sup
+        </label>
+
+        <input type="text" id="sup_id_box" name="query_sup_id" value="<%= @the_discipline.sup_id %>">
+      </div>
+
+      <div>
+        <label for="level_box">
+          Level
+        </label>
+
+        <input type="text" id="level_box" name="query_level" value="<%= @the_discipline.level %>">
+      </div>
+
+      <div>
+        <label for="effective_box">
+          Effective
+        </label>
+
+        <input type="date" id="effective_box" name="query_effective" value="<%= @the_discipline.effective %>">
+      </div>
+
+      <div>
+        <label for="expires_box">
+          Expires
+        </label>
+
+        <input type="date" id="expires_box" name="query_expires" value="<%= @the_discipline.expires %>">
+      </div>
+
+      <div>
+        <label for="reason_box">
+          Reason
+        </label>
+
+        <input type="text" id="reason_box" name="query_reason" value="<%= @the_discipline.reason %>">
+      </div>
+
+      <div>
+        <label for="expectations_box">
+          Expectations
+        </label>
+
+        <input type="text" id="expectations_box" name="query_expectations" value="<%= @the_discipline.expectations %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes" value="<%= @the_discipline.notes %>">
+      </div>
+
+      <div>
+        <label for="title_for_box">
+          Title for
+        </label>
+
+        <input type="text" id="title_for_box" name="query_title_for" value="<%= @the_discipline.title_for %>">
+      </div>
+
+      <button>
+        Update discipline
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

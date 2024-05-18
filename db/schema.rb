@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_18_184101) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_18_185658) do
+  create_table "disciplines", force: :cascade do |t|
+    t.integer "emp_id"
+    t.integer "sup_id"
+    t.string "level"
+    t.date "effective"
+    t.date "expires"
+    t.string "reason"
+    t.string "expectations"
+    t.string "notes"
+    t.string "title_for"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -24,6 +38,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_18_184101) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.integer "emp_id"
+    t.integer "sup_id"
+    t.date "date"
+    t.string "title"
+    t.string "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "disc_id"
   end
 
   create_table "users", force: :cascade do |t|

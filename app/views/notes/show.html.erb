@@ -1,0 +1,139 @@
+<div>
+  <div>
+    <h1>
+      Note #<%= @the_note.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/notes">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_note/<%= @the_note.id %>">
+          Delete note
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Emp
+      </dt>
+      <dd>
+        <%= @the_note.emp_id %>
+      </dd>
+
+      <dt>
+        Sup
+      </dt>
+      <dd>
+        <%= @the_note.sup_id %>
+      </dd>
+
+      <dt>
+        Date
+      </dt>
+      <dd>
+        <%= @the_note.date %>
+      </dd>
+
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_note.title %>
+      </dd>
+
+      <dt>
+        Note
+      </dt>
+      <dd>
+        <%= @the_note.note %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_note.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_note.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit note
+    </h2>
+
+    <form action="/modify_note/<%= @the_note.id %>"  method="post" >
+      <div>
+        <label for="emp_id_box">
+          Emp
+        </label>
+
+        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_note.emp_id %>">
+      </div>
+
+      <div>
+        <label for="sup_id_box">
+          Sup
+        </label>
+
+        <input type="text" id="sup_id_box" name="query_sup_id" value="<%= @the_note.sup_id %>">
+      </div>
+
+                  <div>
+        <label for="disc_id_box">
+          Sup
+        </label>
+
+        <input type="text" id="disc_id_box" name="query_disc_id">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date" value="<%= @the_note.date %>">
+      </div>
+
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_note.title %>">
+      </div>
+
+      <div>
+        <label for="note_box">
+          Note
+        </label>
+
+        <input type="text" id="note_box" name="query_note" value="<%= @the_note.note %>">
+      </div>
+
+      <button>
+        Update note
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

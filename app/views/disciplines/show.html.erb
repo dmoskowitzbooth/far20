@@ -1,115 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>Flight Attendant Performance Counseling Record</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li>Employee: <%= @the_discipline.employee.first_name %> <%= @the_discipline.employee.last_name %></li>
+      <li>Issued: <%= @the_discipline.effective %></li>
+      <li style="color: maroon">  Type: <%= @the_discipline.level %></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h4>Reason for performance counseling:</h4>
+    <p><%= @the_discipline.reason%></p>
+
+      <h4>Expectations for improvement:</h4>
+    <p><%= @the_discipline.expectations%></p>
+  </article>
+</section>
+
+<footer>
+  <p>Issued by: <%= @the_discipline.supervisor.first_name%> <%= @the_discipline.supervisor.last_name%></p>
+  <p>Effective through: <%= @the_discipline.expires%></p>
+</footer>
+
+</body>
+</html>
+
+
 <div>
   <div>
-    <h1>
-      Discipline #<%= @the_discipline.id %> details
-    </h1>
 
-        <div>
-      <% if @the_discipline.expires >= Date.today %>
-        <h3 style= "color: red">Active</h3>
-      <% else %>
-        <h2 style= "color: gray">Expired</h2>
-      <% end %>
-    </div>
 
     <div>
-      <div>
-        <a href="/disciplines">
-          Go back
-        </a>
+
       </div>
 
-      <div>
-        <a href="/delete_discipline/<%= @the_discipline.id %>">
-          Delete discipline
-        </a>
-      </div>
-    </div>
-
-    <dl>
-      <dt>
-        Emp
-      </dt>
-      <dd>
-        <%= @the_discipline.emp_id %>
-      </dd>
-
-      <dt>
-        Sup
-      </dt>
-      <dd>
-        <%= @the_discipline.sup_id %>
-      </dd>
-
-      <dt>
-        Level
-      </dt>
-      <dd>
-        <%= @the_discipline.level %>
-      </dd>
-
-      <dt>
-        Effective
-      </dt>
-      <dd>
-        <%= @the_discipline.effective %>
-      </dd>
-
-      <dt>
-        Expires
-      </dt>
-      <dd>
-        <%= @the_discipline.expires %>
-      </dd>
-
-      <dt>
-        Reason
-      </dt>
-      <dd>
-        <%= @the_discipline.reason %>
-      </dd>
-
-      <dt>
-        Expectations
-      </dt>
-      <dd>
-        <%= @the_discipline.expectations %>
-      </dd>
-
-      <dt>
-        Notes
-      </dt>
-      <dd>
-        <%= @the_discipline.notes %>
-      </dd>
-
-      <dt>
-        Title for
-      </dt>
-      <dd>
-        <%= @the_discipline.title_for %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_discipline.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_discipline.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
-<hr>
-
-
+     
 <div>
   <div>
     <h2>
@@ -122,7 +123,7 @@
           Emp
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_discipline.emp_id %>">
+        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_discipline.emp_id%>">
       </div>
 
       <div>
@@ -173,22 +174,6 @@
         <input type="text" id="expectations_box" name="query_expectations" value="<%= @the_discipline.expectations %>">
       </div>
 
-      <div>
-        <label for="notes_box">
-          Notes
-        </label>
-
-        <input type="text" id="notes_box" name="query_notes" value="<%= @the_discipline.notes %>">
-      </div>
-
-      <div>
-        <label for="title_for_box">
-          Title for
-        </label>
-
-        <input type="text" id="title_for_box" name="query_title_for" value="<%= @the_discipline.title_for %>">
-      </div>
-
       <button>
         Update discipline
       </button>
@@ -197,3 +182,9 @@
 </div>
 
 <hr>
+ <div>
+        <a href="/delete_discipline/<%= @the_discipline.id %>">
+          Rescind discipline
+        </a>
+      </div>
+    </div>

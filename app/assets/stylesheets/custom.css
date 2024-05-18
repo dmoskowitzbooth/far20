@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, Helvetica, sans-serif, sans-serif;
+}
+
+h1 {
+  color: navy;
+}
+
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+

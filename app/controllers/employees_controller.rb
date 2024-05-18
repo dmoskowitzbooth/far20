@@ -50,7 +50,7 @@ class EmployeesController < ApplicationController
 
   def update
     the_id = params.fetch("path_id")
-    the_employee = Employee.where({ :id => the_id }).at(0)
+    the_employee = Employee.where({ :emp_id => the_id }).at(0)
 
     the_employee.first_name = params.fetch("query_first_name")
     the_employee.last_name = params.fetch("query_last_name")
@@ -65,15 +65,15 @@ class EmployeesController < ApplicationController
 
     if the_employee.valid?
       the_employee.save
-      redirect_to("/employees/#{the_employee.id}", { :notice => "Employee updated successfully."} )
+      redirect_to("/employees/#{the_employee.emp_id}", { :notice => "Employee updated successfully."} )
     else
-      redirect_to("/employees/#{the_employee.id}", { :alert => the_employee.errors.full_messages.to_sentence })
+      redirect_to("/employees/#{the_employee.emp_id}", { :alert => the_employee.errors.full_messages.to_sentence })
     end
   end
 
   def destroy
     the_id = params.fetch("path_id")
-    the_employee = Employee.where({ :id => the_id }).at(0)
+    the_employee = Employee.where({ :emp_id => the_id }).at(0)
 
     the_employee.destroy
 

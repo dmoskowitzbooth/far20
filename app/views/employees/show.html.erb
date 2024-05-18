@@ -105,22 +105,18 @@
 
 <div>
   <div>
-    <table class="table">
+    <table class="table table-striped">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
-          Emp
-        </th>
-
-        <th>
-          Sup
-        </th>
-
-        <th>
           Level
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Notes
         </th>
 
         <th>
@@ -132,51 +128,25 @@
         </th>
 
         <th>
-          Reason
+          Issued By
         </th>
 
-        <th>
-          Expectations
-        </th>
-
-        <th>
-          Notes
-        </th>
-
-        <th>
-          Title for
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
       </tr>
 
       <% @list_of_disciplines.each do |a_discipline| %>
       <tr>
         <td>
-          <%= a_discipline.id %>
+          <a href="/disciplines/<%= a_discipline.id %>">
+            <%= a_discipline.level %>
+          </a>
         </td>
 
         <td>
-          <%= a_discipline.emp_id %>
+          <%= a_discipline.title_for %>
         </td>
-
         <td>
-          <%= a_discipline.sup_id %>
+          <%= a_discipline.notes %>
         </td>
-
-        <td>
-          <%= a_discipline.level %>
-        </td>
-
         <td>
           <%= a_discipline.effective %>
         </td>
@@ -184,34 +154,12 @@
         <td>
           <%= a_discipline.expires %>
         </td>
-
         <td>
-          <%= a_discipline.reason %>
+          <%= a_discipline.sup_id %>
         </td>
 
         <td>
-          <%= a_discipline.expectations %>
-        </td>
-
-        <td>
-          <%= a_discipline.notes %>
-        </td>
-
-        <td>
-          <%= a_discipline.title_for %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_discipline.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_discipline.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/disciplines/<%= a_discipline.id %>">
-            Show details
-          </a>
+        
         </td>
       </tr>
       <% end %>
@@ -225,22 +173,18 @@
 
 <div>
   <div>
-    <table class="table">
+    <table class="table table-striped">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
-          Emp
-        </th>
-
-        <th>
-          Sup
-        </th>
-
-        <th>
           Level
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Notes
         </th>
 
         <th>
@@ -252,49 +196,25 @@
         </th>
 
         <th>
-          Reason
+          Issued By
         </th>
 
-        <th>
-          Expectations
-        </th>
-
-        <th>
-          Notes
-        </th>
-
-        <th>
-          Title for
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
       </tr>
 
       <% @list_of_disciplines_exp.each do |a_discipline| %>
       <tr>
-        <td>
-          <%= a_discipline.id %>
+      <td>
+          <a href="/disciplines/<%= a_discipline.id %>">
+            <%= a_discipline.level %>
+          </a>
         </td>
 
         <td>
-          <%= a_discipline.emp_id %>
+          <%= a_discipline.title_for %>
         </td>
 
         <td>
-          <%= a_discipline.sup_id %>
-        </td>
-
-        <td>
-          <%= a_discipline.level %>
+          <%= a_discipline.notes %>
         </td>
 
         <td>
@@ -306,33 +226,9 @@
         </td>
 
         <td>
-          <%= a_discipline.reason %>
+          <%= a_discipline.sup_id %>
         </td>
 
-        <td>
-          <%= a_discipline.expectations %>
-        </td>
-
-        <td>
-          <%= a_discipline.notes %>
-        </td>
-
-        <td>
-          <%= a_discipline.title_for %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_discipline.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_discipline.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/disciplines/<%= a_discipline.id %>">
-            Show details
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>

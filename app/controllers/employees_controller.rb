@@ -23,6 +23,11 @@ class EmployeesController < ApplicationController
     matching_disciplines_exp = Discipline.where({ :emp_id => the_id }).where('expires < ?', today)
     @list_of_disciplines = matching_disciplines.order({ :expires => :desc })
     @list_of_disciplines_exp = matching_disciplines_exp.order({ :expires => :desc })
+    
+    @max_disciplines = @list_of_disciplines.order(level: :desc).first
+
+    @max_disciplines_exp = @list_of_disciplines.order(level: :desc).first
+
 
     render({ :template => "employees/show" })
   end

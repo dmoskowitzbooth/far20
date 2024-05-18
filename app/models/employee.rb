@@ -6,6 +6,7 @@
 #  access     :string
 #  base       :string
 #  doh        :string
+#  email      :string
 #  first_name :string
 #  image      :string
 #  last_name  :string
@@ -16,4 +17,16 @@
 #  emp_id     :integer
 #
 class Employee < ApplicationRecord
+  before_create :create_user
+
+  private
+
+  def create_user
+    User.create!(
+      email: self.email,
+      emp_id: self.emp_id,
+      password: 'password',  # Default password
+      password_confirmation: 'password'  # Ensure password confirmation matches
+    )
+  end
 end

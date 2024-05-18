@@ -28,6 +28,7 @@ class EmployeesController < ApplicationController
     the_employee.doh = params.fetch("query_doh")
     the_employee.access = params.fetch("query_access")
     the_employee.image = params.fetch("query_image")
+    the_employee.email = params.fetch("query_email")
 
     if the_employee.valid?
       the_employee.save
@@ -50,6 +51,7 @@ class EmployeesController < ApplicationController
     the_employee.doh = params.fetch("query_doh")
     the_employee.access = params.fetch("query_access")
     the_employee.image = params.fetch("query_image")
+    the_employee.email = params.fetch("query_email")
 
     if the_employee.valid?
       the_employee.save

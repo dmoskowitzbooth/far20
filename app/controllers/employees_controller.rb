@@ -28,6 +28,9 @@ class EmployeesController < ApplicationController
 
     @max_disciplines_exp = @list_of_disciplines.order({:expires => :desc}).first
 
+    #notes
+    matching_notes = Note.where({ :emp_id => the_id })
+    @list_of_notes = matching_notes.order({ :created_at => :desc })
 
     render({ :template => "employees/show" })
   end

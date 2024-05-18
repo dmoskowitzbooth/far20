@@ -66,6 +66,51 @@
 
 <hr>
 
+<h2>Notes</h2>
+
+<div>
+  <div>
+    <table class="table table-striped">
+      <tr>
+        <th>
+        Date
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Note
+        </th>
+
+      </tr>
+
+      <% @list_of_notes.each do |a_note| %>
+      <tr>
+
+        <td>
+                  <a href="/notes/<%= a_note.id %>">
+            <%= a_note.date %>
+          </a>  
+        </td>
+
+        <td>
+          <%= a_note.title %>
+        </td>
+
+        <td>
+          <%= a_note.note %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
 <h2>Active Discipline</h2>
         <div>
       <% if @max_disciplines.present? %>

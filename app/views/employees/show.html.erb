@@ -1,38 +1,40 @@
-<div>
-  <div>
-    <h1>
-      <%= @the_employee.first_name %> <%= @the_employee.last_name %>
-    </h1>
 
     <div>
       <div>
         <a href="/employees">
           Go back
         </a>
-      </div>
-
-      <div>
-        <a href="/delete_employee/<%= @the_employee.emp_id %>">
-          Delete employee
-        </a>
-      </div>
+      </div><div>
+  <div>
+    <h1>
+      <%= @the_employee.first_name %> <%= @the_employee.last_name %>
+    </h1>
+            <div>
+      <% if @max_disciplines.level=="TERM" %>
+        <h4 style= "color: red">TERMINATED</h4>
+      <% else %>
+        <h4 style= "color: green">Active</h4>
+      <% end %>
     </div>
 
+      <dd>
+        <td><img src="<%=@the_employee.image %>" style="width:250px;"></td>
+      </dd>
+
+
     <dl>
-      <dt>
-        First name
+          <dt>
+        Employee ID
       </dt>
       <dd>
-        <%= @the_employee.first_name %>
+        <%= @the_employee.emp_id %>
       </dd>
-
-      <dt>
-        Last name
+            <dt>
+        Email
       </dt>
       <dd>
-        <%= @the_employee.last_name %>
+        <%= @the_employee.email %>
       </dd>
-
       <dt>
         Phone
       </dt>
@@ -46,21 +48,6 @@
       <dd>
         <%= @the_employee.base %>
       </dd>
-
-      <dt>
-        Position
-      </dt>
-      <dd>
-        <%= @the_employee.position %>
-      </dd>
-
-      <dt>
-        Emp
-      </dt>
-      <dd>
-        <%= @the_employee.emp_id %>
-      </dd>
-
       <dt>
         Doh
       </dt>
@@ -68,33 +55,11 @@
         <%= @the_employee.doh %>
       </dd>
 
-      <dt>
-        Access
-      </dt>
-      <dd>
-        <%= @the_employee.access %>
-      </dd>
 
-      <dt>
-        Image
-      </dt>
-      <dd>
-        <%= @the_employee.image %>
-      </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_employee.created_at) %> ago
-      </dd>
 
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_employee.updated_at) %> ago
-      </dd>
+
+
     </dl>
   </div>
 </div>
@@ -423,3 +388,9 @@
 </div>
 
 <hr>
+      <div>
+        <a href="/delete_employee/<%= @the_employee.emp_id %>">
+          Delete employee
+        </a>
+      </div>
+    </div>

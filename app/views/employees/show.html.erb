@@ -102,6 +102,13 @@
 <hr>
 
 <h2>Active Discipline</h2>
+        <div>
+      <% if @max_disciplines.present? %>
+        <h4 style= "color: red"><%=@max_disciplines.level %></h4>
+      <% else %>
+        <h4 style= "color: green">"No Active Discipline"</h4>
+      <% end %>
+    </div>
 
 <div>
   <div>
@@ -235,7 +242,92 @@
   </div>
 </div>
 
+<div>
+  <div>
+    <h2>
+      Add a new discipline
+    </h2>
 
+    <form action="/insert_discipline" method="post">
+      <div>
+        <label for="emp_id_box">
+          Emp
+        </label>
+
+        <input type="text" id="emp_id_box" name="query_emp_id">
+      </div>
+
+      <div>
+        <label for="sup_id_box">
+          Sup
+        </label>
+
+        <input type="text" id="sup_id_box" name="query_sup_id">
+      </div>
+
+      <div>
+        <label for="level_box">
+          Level
+        </label>
+
+        <input type="text" id="level_box" name="query_level">
+      </div>
+
+      <div>
+        <label for="effective_box">
+          Effective
+        </label>
+
+        <input type="date" id="effective_box" name="query_effective">
+      </div>
+
+      <div>
+        <label for="expires_box">
+          Expires
+        </label>
+
+        <input type="date" id="expires_box" name="query_expires">
+      </div>
+
+      <div>
+        <label for="reason_box">
+          Reason
+        </label>
+
+        <input type="text" id="reason_box" name="query_reason">
+      </div>
+
+      <div>
+        <label for="expectations_box">
+          Expectations
+        </label>
+
+        <input type="text" id="expectations_box" name="query_expectations">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes">
+      </div>
+
+      <div>
+        <label for="title_for_box">
+          Title for
+        </label>
+
+        <input type="text" id="title_for_box" name="query_title_for">
+      </div>
+
+      <button>
+        Create discipline
+      </button>
+    </form>
+  </div>
+</div>
+<hr>
 <div>
   <div>
     <h2>

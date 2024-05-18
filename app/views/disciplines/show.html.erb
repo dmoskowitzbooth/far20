@@ -4,6 +4,14 @@
       Discipline #<%= @the_discipline.id %> details
     </h1>
 
+        <div>
+      <% if @the_discipline.expires >= Date.today %>
+        <h3 style= "color: red">Active</h3>
+      <% else %>
+        <h2 style= "color: gray">Expired</h2>
+      <% end %>
+    </div>
+
     <div>
       <div>
         <a href="/disciplines">

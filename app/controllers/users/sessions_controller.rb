@@ -24,4 +24,22 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-end
+
+
+    def after_sign_in_path_for(resource)
+      employee = Employee.find_by(emp_id: resource.emp_id)
+      
+      if employee.present?
+        case employee.access
+        when 'FA'
+          fa_path(employee.emp_id) # Redirect to /fa/<emp_id> for FA access
+        when 'SUP'
+          disciplines_path # Redirect to /disciplines for SUP access
+        else
+          root_path # Default path if no access or other access levels
+        end
+      else
+        root_path # Redirect to root if no employee is found
+      end
+    end
+  end

@@ -91,17 +91,26 @@ Rails.application.routes.draw do
   
   # DELETE
   get("/delete_discipline/:path_id", { :controller => "disciplines", :action => "destroy" })
+#FAs
 
   #------------------------------
+  get("/fa/:path_id", { :controller => "fas", :action => "index" })
 
-      devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
-    end
+  devise_for :users, controllers: { sessions: 'users/sessions' }
+
+  # Define a custom route for FA
+  get 'fa/:emp_id', to: 'fa#show', as: 'fa'
+  
+  # Define other routes
+  resources :employees, only: [:index, :show] # Adjust actions as needed
+  resources :disciplines, only: [:index, :show] # Adjust actions as needed
+  
+  root to: 'home#index'
 
   # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
 
   # get "/your_first_screen" => "pages#first"
   root to: "home#index"
   
-end
+    end
+  end

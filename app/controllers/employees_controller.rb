@@ -1,8 +1,12 @@
 class EmployeesController < ApplicationController
   def index
-    matching_employees = Employee.all
 
-    @list_of_employees = matching_employees.order({ :created_at => :desc })
+    if params[:search].present?
+      search_term = "%#{params[:search]}%"
+      @list_of_employees = Employee.where("emp_id LIKE ? OR first_name LIKE ? OR last_name LIKE ?", search_term, search_term, search_term)
+    else
+      @list_of_employees = Employee.all
+    end
 
     render({ :template => "employees/index" })
   end

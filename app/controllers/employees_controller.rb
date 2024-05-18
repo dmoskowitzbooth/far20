@@ -9,10 +9,16 @@ class EmployeesController < ApplicationController
 
   def show
     the_id = params.fetch("path_id")
+    today = Date.today
 
-    matching_employees = Employee.where({ :id => the_id })
+    matching_employees = Employee.where({ :emp_id => the_id })
 
     @the_employee = matching_employees.at(0)
+
+    matching_disciplines = Discipline.where({ :emp_id => the_id }).where('expires >= ?', today)
+    matching_disciplines_exp = Discipline.where({ :emp_id => the_id }).where('expires < ?', today)
+    @list_of_disciplines = matching_disciplines.order({ :expires => :desc })
+    @list_of_disciplines_exp = matching_disciplines_exp.order({ :expires => :desc })
 
     render({ :template => "employees/show" })
   end

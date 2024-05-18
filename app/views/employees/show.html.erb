@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Employee #<%= @the_employee.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/employees">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_employee/<%= @the_employee.id %>">
+          Delete employee
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        First name
+      </dt>
+      <dd>
+        <%= @the_employee.first_name %>
+      </dd>
+
+      <dt>
+        Last name
+      </dt>
+      <dd>
+        <%= @the_employee.last_name %>
+      </dd>
+
+      <dt>
+        Phone
+      </dt>
+      <dd>
+        <%= @the_employee.phone %>
+      </dd>
+
+      <dt>
+        Base
+      </dt>
+      <dd>
+        <%= @the_employee.base %>
+      </dd>
+
+      <dt>
+        Position
+      </dt>
+      <dd>
+        <%= @the_employee.position %>
+      </dd>
+
+      <dt>
+        Emp
+      </dt>
+      <dd>
+        <%= @the_employee.emp_id %>
+      </dd>
+
+      <dt>
+        Doh
+      </dt>
+      <dd>
+        <%= @the_employee.doh %>
+      </dd>
+
+      <dt>
+        Access
+      </dt>
+      <dd>
+        <%= @the_employee.access %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_employee.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_employee.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_employee.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit employee
+    </h2>
+
+    <form action="/modify_employee/<%= @the_employee.id %>"  method="post" >
+      <div>
+        <label for="first_name_box">
+          First name
+        </label>
+
+        <input type="text" id="first_name_box" name="query_first_name" value="<%= @the_employee.first_name %>">
+      </div>
+
+      <div>
+        <label for="last_name_box">
+          Last name
+        </label>
+
+        <input type="text" id="last_name_box" name="query_last_name" value="<%= @the_employee.last_name %>">
+      </div>
+
+      <div>
+        <label for="phone_box">
+          Phone
+        </label>
+
+        <input type="text" id="phone_box" name="query_phone" value="<%= @the_employee.phone %>">
+      </div>
+
+      <div>
+        <label for="base_box">
+          Base
+        </label>
+
+        <input type="text" id="base_box" name="query_base" value="<%= @the_employee.base %>">
+      </div>
+
+      <div>
+        <label for="position_box">
+          Position
+        </label>
+
+        <input type="text" id="position_box" name="query_position" value="<%= @the_employee.position %>">
+      </div>
+
+      <div>
+        <label for="emp_id_box">
+          Emp
+        </label>
+
+        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_employee.emp_id %>">
+      </div>
+
+      <div>
+        <label for="doh_box">
+          Doh
+        </label>
+
+        <input type="text" id="doh_box" name="query_doh" value="<%= @the_employee.doh %>">
+      </div>
+
+      <div>
+        <label for="access_box">
+          Access
+        </label>
+
+        <input type="text" id="access_box" name="query_access" value="<%= @the_employee.access %>">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_employee.image %>">
+      </div>
+
+      <button>
+        Update employee
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

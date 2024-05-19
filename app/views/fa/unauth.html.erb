@@ -1,1 +1,10 @@
-error
+    <div class="topnav">
+  <a class="active" href="/fa.<%= current_user.employee.emp_id%>">My Profile</a>
+  <a href="/users/sign_out">Sign Out</a>
+  </div>
+<h2 style="color: red">Error:<h2>
+<h5>You are attempting to access content to which you do not have access. If you believe this is in error, please contact the system administrator.</h5>
+
+<a href="/fa.<%= current_user.employee.emp_id%>">
+            Go Back
+          </a>

@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
     the_message.sup_id = params.fetch("query_sup_id")
     the_message.subject = params.fetch("query_subject")
     the_message.message = params.fetch("query_message")
-    the_message.read = params.fetch("query_read")
+
 
     if the_message.valid?
       the_message.save

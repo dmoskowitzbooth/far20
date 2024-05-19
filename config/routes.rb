@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   get("/messages", { :controller => "messages", :action => "index" })
   
   get("/messages/:path_id", { :controller => "messages", :action => "show" })
-  get("/famessages/:path_id/:emp_id", { :controller => "fa", :action => "msgshow" })
-  get("/famessages", { :controller => "fa", :action => "msgindex" })
+  get("/famessages/:path_id/:emp_id", { :controller => "fas", :action => "msgshow" })
+  get("/famessages", { :controller => "fas", :action => "msgindex" })
   
   # UPDATE
   
@@ -179,7 +179,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
   # Define a custom route for FA
-  get 'fa/:emp_id', to: 'fa#show', as: 'fa'
+
   
   # Define other routes
   resources :employees, only: [:index, :show] # Adjust actions as needed

@@ -73,6 +73,7 @@ class FasController < ApplicationController
     end
     end
 
+
   def authorize_fa_access
     Rails.logger.debug "Current user: #{current_user.inspect}"
     Rails.logger.debug "Current user emp_id: #{current_user.emp_id}"
@@ -84,4 +85,4 @@ class FasController < ApplicationController
     end
   end
 end
-end
+

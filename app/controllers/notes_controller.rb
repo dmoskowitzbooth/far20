@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_action :require_sup_access, only: [:index, :show]
   def index
     matching_notes = Note.all
 

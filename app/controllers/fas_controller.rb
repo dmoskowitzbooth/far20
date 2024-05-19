@@ -25,10 +25,21 @@ class FasController < ApplicationController
 
     render({ :template => "fa/landing" })
   end
+  
+  def dshow
+    the_id = params.fetch("path_id")
+
+    matching_disciplines = Discipline.where({ :id => the_id })
+
+    @the_discipline = matching_disciplines.at(0)
+
+    render({ :template => "fa/discshow" })
+  end
+
   def unauth
     render({ :template => "fa/unauth" })
   
-  private
+
 
   def authorize_fa_access
     Rails.logger.debug "Current user: #{current_user.inspect}"

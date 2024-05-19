@@ -41,3 +41,119 @@
       <dd>
         <%= current_user.employee.doh %>
       </dd>
+
+<h2>Active Discipline</h2>
+        <div>
+      <% if @max_disciplines.present? %>
+        <h4 style= "color: red"><%=@max_disciplines.level %></h4>
+      <% else %>
+        <h4 style= "color: green">No Active Discipline</h4>
+      <% end %>
+    </div>
+
+<div>
+  <div>
+    <table class="table table-striped">
+      <tr>
+        <th>
+          Level
+        </th>
+
+        <th>
+          Title
+        </th>
+
+
+        <th>
+          Effective
+        </th>
+
+        <th>
+          Expires
+        </th>
+
+
+      </tr>
+
+      <% @list_of_disciplines.each do |a_discipline| %>
+      <tr>
+        <td>
+          <a href="/fadisciplines/<%= a_discipline.id %>">
+            <%= a_discipline.level %>
+          </a>
+        </td>
+
+        <td>
+          <%= a_discipline.title_for %>
+        </td>
+        <td>
+          <%= a_discipline.effective %>
+        </td>
+
+        <td>
+          <%= a_discipline.expires %>
+        </td>
+
+
+        <td>
+        
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<h3>Expired Discipline</h3>
+
+<div>
+  <div>
+    <table class="table table-striped">
+      <tr>
+        <th>
+          Level
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Effective
+        </th>
+
+        <th>
+          Expires
+        </th>
+
+
+      </tr>
+
+      <% @list_of_disciplines_exp.each do |a_discipline| %>
+      <tr>
+      <td>
+          <a href="/fadisciplines/<%= a_discipline.id %>">
+            <%= a_discipline.level %>
+          </a>
+        </td>
+
+        <td>
+          <%= a_discipline.title_for %>
+        </td>
+
+        <td>
+          <%= a_discipline.effective %>
+        </td>
+
+        <td>
+          <%= a_discipline.expires %>
+        </td>
+
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class FactFindingsController < ApplicationController
+  before_action :require_sup_access, only: [:index, :show]
   def index
     matching_fact_findings = FactFinding.all
 

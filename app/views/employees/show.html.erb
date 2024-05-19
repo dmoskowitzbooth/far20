@@ -282,7 +282,7 @@
           Emp
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_employee.emp_id%>">
+        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_employee.emp_id%>"disabled>
       </div>
 
       <div>
@@ -290,7 +290,7 @@
           Sup
         </label>
 
-        <input type="text" id="sup_id_box" name="query_sup_id" value="<%= current_user.employee.emp_id%>">
+        <input type="text" id="sup_id_box" name="query_sup_id" value="<%= current_user.employee.emp_id%>"disabled>
       </div>
 
       <div>
@@ -298,8 +298,13 @@
           Level
         </label>
 
-        <input type="text" id="level_box" name="query_level">
-      </div>
+  <select id="level_box" name="query_level">
+         <option>C&C</option>
+          <option>DVW</option>
+          <option>DWW</option>
+          <option>FTW</option>
+          <option>TERM</option>
+          </select>
 
       <div>
         <label for="effective_box">
@@ -322,7 +327,7 @@
           Reason
         </label>
 
-        <input type="text" id="reason_box" name="query_reason">
+        <textarea id="reason_box" name="query_reason"></textarea>
       </div>
 
       <div>
@@ -330,7 +335,7 @@
           Expectations
         </label>
 
-        <input type="text" id="expectations_box" name="query_expectations">
+        <textarea id="expectations_box" name="query_expectations"></textarea>
       </div>
 
       <div>
@@ -408,7 +413,10 @@
           Position
         </label>
 
-        <input type="text" id="position_box" name="query_position" value="<%= @the_employee.position %>">
+      <select id="position_box" name="query_position">
+         <option value="fa" <%= 'selected' if @the_employee.position %>>FA</option>
+          <option value="sup" <%= 'selected' unless @the_employee.position %>>SUP</option>
+          </select>
       </div>
 
       <div>
@@ -416,15 +424,15 @@
           Emp
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_employee.emp_id %>">
+        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_employee.emp_id %>"disabled>
       </div>
 
       <div>
         <label for="doh_box">
-          Doh
+          DOH
         </label>
 
-        <input type="text" id="doh_box" name="query_doh" value="<%= @the_employee.doh %>">
+        <input type="date" id="doh_box" name="query_doh" value="<%= @the_employee.doh %>">
       </div>
 
       <div>
@@ -432,7 +440,10 @@
           Access
         </label>
 
-        <input type="text" id="access_box" name="query_access" value="<%= @the_employee.access %>">
+       <select id="access_box" name="query_access">
+         <option value="fa" <%= 'selected' if @the_employee.access %>>FA</option>
+          <option value="sup" <%= 'selected' unless @the_employee.access %>>SUP</option>
+          </select>
       </div>
 
       <div>

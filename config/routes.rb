@@ -1,4 +1,44 @@
 Rails.application.routes.draw do
+  # Routes for the Fact finding resource:
+
+  # CREATE
+  post("/insert_fact_finding", { :controller => "fact_findings", :action => "create" })
+          
+  # READ
+  get("/fact_findings", { :controller => "fact_findings", :action => "index" })
+  
+  get("/fact_findings/:path_id", { :controller => "fact_findings", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_fact_finding/:path_id", { :controller => "fact_findings", :action => "update" })
+  
+  # DELETE
+  get("/delete_fact_finding/:path_id", { :controller => "fact_findings", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Message resource:
+
+  # CREATE
+  post("/insert_message", { :controller => "messages", :action => "create" })
+          
+  # READ
+  get("/messages", { :controller => "messages", :action => "index" })
+  
+  get("/messages/:path_id", { :controller => "messages", :action => "show" })
+  get("/famessages/:path_id/:emp_id", { :controller => "fa", :action => "msgshow" })
+  get("/famessages", { :controller => "fa", :action => "msgindex" })
+  
+  # UPDATE
+  
+  post("/modify_message/:path_id", { :controller => "messages", :action => "update" })
+  
+  # DELETE
+  get("/delete_message/:path_id", { :controller => "messages", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Note resource:
   get("/", { :controller => "employees", :action => "index" })
   # CREATE
@@ -56,6 +96,44 @@ Rails.application.routes.draw do
 
   #------------------------------
     Rails.application.routes.draw do
+  # Routes for the Fact finding resource:
+
+  # CREATE
+  post("/insert_fact_finding", { :controller => "fact_findings", :action => "create" })
+          
+  # READ
+  get("/fact_findings", { :controller => "fact_findings", :action => "index" })
+  
+  get("/fact_findings/:path_id", { :controller => "fact_findings", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_fact_finding/:path_id", { :controller => "fact_findings", :action => "update" })
+  
+  # DELETE
+  get("/delete_fact_finding/:path_id", { :controller => "fact_findings", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Message resource:
+
+  # CREATE
+  post("/insert_message", { :controller => "messages", :action => "create" })
+          
+  # READ
+  get("/messages", { :controller => "messages", :action => "index" })
+  
+  get("/messages/:path_id", { :controller => "messages", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_message/:path_id", { :controller => "messages", :action => "update" })
+  
+  # DELETE
+  get("/delete_message/:path_id", { :controller => "messages", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Note resource:
 
   # CREATE

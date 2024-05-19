@@ -1,0 +1,16 @@
+# == Schema Information
+#
+# Table name: fact_findings
+#
+#  id         :integer          not null, primary key
+#  date       :date
+#  notes      :string
+#  time       :time
+#  to_discuss :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  emp_id     :integer
+#  sup_id     :integer
+#
+class FactFinding < ApplicationRecord
+end

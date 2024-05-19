@@ -1,0 +1,166 @@
+<div>
+  <div>
+    <h1>
+      List of all fact findings
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new fact finding
+    </h2>
+
+    <form action="/insert_fact_finding" method="post">
+      <div>
+        <label for="emp_id_box">
+          Emp
+        </label>
+
+        <input type="text" id="emp_id_box" name="query_emp_id">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date">
+      </div>
+
+      <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="time" id="time_box" name="query_time">
+      </div>
+
+      <div>
+        <label for="sup_id_box">
+          Sup
+        </label>
+
+        <input type="text" id="sup_id_box" name="query_sup_id">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes">
+      </div>
+
+      <div>
+        <label for="to_discuss_box">
+          To discuss
+        </label>
+
+        <input type="text" id="to_discuss_box" name="query_to_discuss">
+      </div>
+
+      <button>
+        Create fact finding
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Emp
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Time
+        </th>
+
+        <th>
+          Sup
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          To discuss
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_fact_findings.each do |a_fact_finding| %>
+      <tr>
+        <td>
+          <%= a_fact_finding.id %>
+        </td>
+
+        <td>
+          <%= a_fact_finding.emp_id %>
+        </td>
+
+        <td>
+          <%= a_fact_finding.date %>
+        </td>
+
+        <td>
+          <%= a_fact_finding.time %>
+        </td>
+
+        <td>
+          <%= a_fact_finding.sup_id %>
+        </td>
+
+        <td>
+          <%= a_fact_finding.notes %>
+        </td>
+
+        <td>
+          <%= a_fact_finding.to_discuss %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_fact_finding.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_fact_finding.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/fact_findings/<%= a_fact_finding.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

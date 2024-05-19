@@ -46,8 +46,32 @@ class FasController < ApplicationController
 
   def unauth
     render({ :template => "fa/unauth" })
-  
+  end
 
+  def msgindex
+    matching_messages = Message.where({:emp_id => current_user.employee.emp_id}).all
+
+    @list_of_messages = matching_messages.order({ :created_at => :desc })
+
+    render({ :template => "fa/listmessages" })
+  end
+
+    def msgshow
+      the_id = params.fetch("path_id")
+      the_typedid=params.fetch("emp_id")
+      the_emp=current_user.employee.emp_id
+  
+      if params.fetch("emp_id")==current_user.emp_id.to_s
+  
+      matching_messages = Message.where({ :id => the_id })
+  
+      @the_message = matching_messages.at(0)
+  
+      render({ :template => "fa/messages" })
+    else 
+      render({ :template => "fa/unauth" })
+    end
+    end
 
   def authorize_fa_access
     Rails.logger.debug "Current user: #{current_user.inspect}"

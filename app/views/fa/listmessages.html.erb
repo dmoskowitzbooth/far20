@@ -1,0 +1,147 @@
+    <div class="topnav">
+  <a class="active" href="/fa.<%= current_user.employee.emp_id%>">My Profile</a>
+  <a href="/famessages">Messaging</a>
+  <a href="/users/sign_out">Sign Out</a>
+  </div>
+<div>
+  <div>
+    <h1>
+      List of all messages
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new message
+    </h2>
+
+    <form action="/insert_message" method="post">
+      <div>
+        <label for="emp_id_box">
+          Emp
+        </label>
+
+        <input type="text" id="emp_id_box" name="query_emp_id">
+      </div>
+
+      <div>
+        <label for="sup_id_box">
+          Sup
+        </label>
+
+        <input type="text" id="sup_id_box" name="query_sup_id">
+      </div>
+
+      <div>
+        <label for="subject_box">
+          Subject
+        </label>
+
+        <input type="text" id="subject_box" name="query_subject">
+      </div>
+
+      <div>
+        <label for="message_box">
+          Message
+        </label>
+
+        <input type="text" id="message_box" name="query_message">
+      </div>
+
+            <div class="form-check">
+        <label for="read_box">
+          Read
+        </label>
+
+        <input type="checkbox" id="read_box" name="query_read">
+      </div>
+
+      <button>
+        Create message
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Emp
+        </th>
+
+        <th>
+          Sup
+        </th>
+
+        <th>
+          Subject
+        </th>
+
+        <th>
+          Message
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_messages.each do |a_message| %>
+      <tr>
+        <td>
+          <%= a_message.id %>
+        </td>
+
+        <td>
+          <%= a_message.emp_id %>
+        </td>
+
+        <td>
+          <%= a_message.sup_id %>
+        </td>
+
+        <td>
+          <%= a_message.subject %>
+        </td>
+
+        <td>
+          <%= a_message.message %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_message.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_message.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/messages/<%= a_message.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

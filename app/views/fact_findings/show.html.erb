@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      Fact finding #<%= @the_fact_finding.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/fact_findings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_fact_finding/<%= @the_fact_finding.id %>">
+          Delete fact finding
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Emp
+      </dt>
+      <dd>
+        <%= @the_fact_finding.emp_id %>
+      </dd>
+
+      <dt>
+        Date
+      </dt>
+      <dd>
+        <%= @the_fact_finding.date %>
+      </dd>
+
+      <dt>
+        Time
+      </dt>
+      <dd>
+        <%= @the_fact_finding.time %>
+      </dd>
+
+      <dt>
+        Sup
+      </dt>
+      <dd>
+        <%= @the_fact_finding.sup_id %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_fact_finding.notes %>
+      </dd>
+
+      <dt>
+        To discuss
+      </dt>
+      <dd>
+        <%= @the_fact_finding.to_discuss %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_fact_finding.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_fact_finding.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit fact finding
+    </h2>
+
+    <form action="/modify_fact_finding/<%= @the_fact_finding.id %>"  method="post" >
+      <div>
+        <label for="emp_id_box">
+          Emp
+        </label>
+
+        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_fact_finding.emp_id %>">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date" value="<%= @the_fact_finding.date %>">
+      </div>
+
+      <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="time" id="time_box" name="query_time" value="<%= @the_fact_finding.time %>">
+      </div>
+
+      <div>
+        <label for="sup_id_box">
+          Sup
+        </label>
+
+        <input type="text" id="sup_id_box" name="query_sup_id" value="<%= @the_fact_finding.sup_id %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes" value="<%= @the_fact_finding.notes %>">
+      </div>
+
+      <div>
+        <label for="to_discuss_box">
+          To discuss
+        </label>
+
+        <input type="text" id="to_discuss_box" name="query_to_discuss" value="<%= @the_fact_finding.to_discuss %>">
+      </div>
+
+      <button>
+        Update fact finding
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

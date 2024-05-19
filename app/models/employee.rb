@@ -34,6 +34,9 @@ class Employee < ApplicationRecord
   has_many :disciplines_as_employee, class_name: 'Discipline', primary_key: :emp_id, foreign_key: :emp_id
   has_many :disciplines_as_supervisor, class_name: 'Discipline', primary_key: :emp_id, foreign_key: :sup_id
 
+  has_many :messages_as_employee, class_name: 'Message', primary_key: :emp_id, foreign_key: :emp_id
+  has_many :messages_as_supervisor, class_name: 'Message', primary_key: :emp_id, foreign_key: :sup_id
+
   has_many :notes_as_employee, class_name: 'Note', primary_key: :emp_id, foreign_key: :emp_id
   has_many :notes_as_supervisor, class_name: 'Note', primary_key: :emp_id, foreign_key: :sup_id
 end

@@ -96,7 +96,7 @@ Rails.application.routes.draw do
   #------------------------------
   get("/fa.:path_id", { :controller => "fas", :action => "index" })
   get("/fa", { :controller => "fas", :action => "unauth" })
-  get("/fadisciplines/:path_id", { :controller => "fas", :action => "dshow" })
+  get("/fadisciplines/:path_id/:emp_id", { :controller => "fas", :action => "dshow" })
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
 

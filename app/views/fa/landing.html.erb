@@ -78,7 +78,7 @@
       <% @list_of_disciplines.each do |a_discipline| %>
       <tr>
         <td>
-          <a href="/fadisciplines/<%= a_discipline.id %>">
+          <a href="/fadisciplines/<%= a_discipline.id %>/<<%= current_user.employee.emp_id%>">
             <%= a_discipline.level %>
           </a>
         </td>
@@ -134,7 +134,7 @@
       <% @list_of_disciplines_exp.each do |a_discipline| %>
       <tr>
       <td>
-          <a href="/fadisciplines/<%= a_discipline.id %>">
+          <a href="/fadisciplines/<%= a_discipline.id %>/<%= current_user.employee.emp_id%>">
             <%= a_discipline.level %>
           </a>
         </td>

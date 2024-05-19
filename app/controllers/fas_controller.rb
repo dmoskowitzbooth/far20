@@ -25,11 +25,12 @@ class FasController < ApplicationController
 
     render({ :template => "fa/landing" })
   end
-  
+
   def dshow
     the_id = params.fetch("path_id")
+    the_emp=current_user.employee.emp_id
 
-    matching_disciplines = Discipline.where({ :id => the_id })
+    matching_disciplines = Discipline.where({ :id => the_id }).where({:emp_id => the_emp})
 
     @the_discipline = matching_disciplines.at(0)
 

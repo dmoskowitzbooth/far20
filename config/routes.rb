@@ -94,7 +94,8 @@ Rails.application.routes.draw do
 #FAs
 
   #------------------------------
-  get("/fa/:path_id", { :controller => "fas", :action => "index" })
+  get("/fa.:path_id", { :controller => "fas", :action => "index" })
+  get("/fa", { :controller => "fas", :action => "unauth" })
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
 

@@ -1,8 +1,9 @@
 class FasController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :authorize_fa_access, only: [:show]
 
   def index
-    the_id = params.fetch("path_id")
+    the_id = current_user.employee.emp_id
     today = Date.today
 
     matching_employees = Employee.where({ :emp_id => the_id })
@@ -24,5 +25,20 @@ class FasController < ApplicationController
 
     render({ :template => "fa/landing" })
   end
+  def unauth
+    render({ :template => "fa/unauth" })
+  
+  private
 
+  def authorize_fa_access
+    Rails.logger.debug "Current user: #{current_user.inspect}"
+    Rails.logger.debug "Current user emp_id: #{current_user.emp_id}"
+    Rails.logger.debug "Params path_id: #{params[:path_id]}"
+    @user=User.find(params[:id])
+    if current_user.employee.access == 'FA' && current_user.emp_id.to_s != @user
+      flash[:alert] = "You are not authorized to view this page."
+      redirect_to root_path
+    end
+  end
+end
 end

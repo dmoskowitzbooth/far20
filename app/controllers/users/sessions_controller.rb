@@ -34,7 +34,7 @@ class Users::SessionsController < Devise::SessionsController
         when 'FA'
           fa_path(employee.emp_id) # Redirect to /fa/<emp_id> for FA access
         when 'SUP'
-          disciplines_path # Redirect to /disciplines for SUP access
+          employees_path # Redirect to /disciplines for SUP access
         else
           root_path # Default path if no access or other access levels
         end

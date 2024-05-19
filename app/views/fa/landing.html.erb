@@ -1,3 +1,43 @@
 <h1>
-      Hello, <%= @the_employee.first_name %> <%= @the_employee.last_name %>!
+      Hello, <%= current_user.employee.first_name %> <%= current_user.employee.last_name %>!
     </h1>
+
+ <dd>
+        <td><img src="<%= current_user.employee.image %>" style="width:250px;"></td>
+      </dd>
+
+
+    <dl>
+          <dt>
+        Employee ID
+      </dt>
+      <dd>
+        <%= current_user.employee.emp_id %>
+      </dd>
+            <dt>
+        Base
+      </dt>
+      <dd>
+        <%= current_user.employee.base %>
+      </dd>
+      <dt>
+            <dt>
+        Email
+      </dt>
+      <dd>
+        <%= current_user.employee.email %>
+      </dd>
+      <dt>
+        Phone
+      </dt>
+      <dd>
+        <%= current_user.employee.phone %>
+      </dd>
+
+
+        <dt>
+        DOH
+      </dt>
+      <dd>
+        <%= current_user.employee.doh %>
+      </dd>

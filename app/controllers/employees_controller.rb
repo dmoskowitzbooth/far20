@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-
+  before_action :require_sup_access, only: [:index, :show]
 def index
     if params[:search].present?
       search_term = "%#{params[:search]}%"

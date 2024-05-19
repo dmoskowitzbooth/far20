@@ -92,10 +92,10 @@ footer {
   
   <article>
     <h4>Reason for performance counseling:</h4>
-    <p><%= @the_discipline.reason%></p>
+    <p><%= simple_format(@the_discipline.reason)%></p>
 
       <h4>Expectations for improvement:</h4>
-    <p><%= @the_discipline.expectations%></p>
+    <p><%= simple_format(@the_discipline.expectations)%></p>
   </article>
 </section>
 

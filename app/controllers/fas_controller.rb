@@ -28,13 +28,20 @@ class FasController < ApplicationController
 
   def dshow
     the_id = params.fetch("path_id")
+    the_typedid=params.fetch("emp_id")
     the_emp=current_user.employee.emp_id
+
+    if params.fetch("emp_id")==current_user.emp_id.to_s
 
     matching_disciplines = Discipline.where({ :id => the_id }).where({:emp_id => the_emp})
 
     @the_discipline = matching_disciplines.at(0)
 
     render({ :template => "fa/discshow" })
+
+    else 
+      render({ :template => "fa/unauth" })
+    end
   end
 
   def unauth

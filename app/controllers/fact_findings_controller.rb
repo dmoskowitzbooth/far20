@@ -54,7 +54,7 @@ class FactFindingsController < ApplicationController
     Dear #{fa_emp}, 
     <br>
 
-    <p>In accordance with the Collective Bargaining Agreement (CBA), Article 18, Section B.1, a Fact-Finding Meeting has been scheduled for you to attend on #{date} at #{time} Base Local Time to discuss test.  Please confirm that you have received this FFM notification by marking this message as read.</p>
+    <p>In accordance with the Collective Bargaining Agreement (CBA), Article 18, Section B.1, a Fact-Finding Meeting has been scheduled for you to attend on #{date} at #{time} Base Local Time to discuss #{to_discuss}.  Please confirm that you have received this FFM notification by marking this message as read.</p>
 
 <p>This meeting will take place in person at your base. This meeting will be attended by Inflight Leadership. </p>
 

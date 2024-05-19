@@ -6,7 +6,7 @@
 <div>
   <div>
     <h1>
-      List of all messages
+      Inbox
     </h1>
   </div>
 </div>
@@ -20,7 +20,7 @@
       <tr>
 
         <th>
-          Sup
+          From
         </th>
 
         <th>
@@ -39,9 +39,9 @@
       <tr>
 <td>
   <% if !a_message.read %>
-    <strong><%= a_message.sup_id%></strong>
+    <strong><%= a_message.supervisor.first_name%> <%= a_message.supervisor.last_name%></strong>
   <% else %>
-    <%= a_message.sup_id %>
+    <%= a_message.supervisor.first_name%> <%= a_message.supervisor.last_name%>
   <% end %>
 </td>
 

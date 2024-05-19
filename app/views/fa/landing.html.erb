@@ -6,6 +6,12 @@
 <h1>
       Hello, <%= current_user.employee.first_name %> <%= current_user.employee.last_name %>!
     </h1>
+<%if @list_of_messages > 0 %>
+<div class="alert alert-warning" role="alert">
+<a href="/famessages">You have <%=@list_of_messages%> unread message(s)!</a>
+  
+</div>
+<%end%>
 
  <dd>
         <td><img src="<%= current_user.employee.image %>" style="width:250px;"></td>
@@ -83,7 +89,7 @@
       <% @list_of_disciplines.each do |a_discipline| %>
       <tr>
         <td>
-          <a href="/fadisciplines/<%= a_discipline.id %>/<<%= current_user.employee.emp_id%>">
+          <a href="/fadisciplines/<%= a_discipline.id %>/<%= current_user.employee.emp_id%>">
             <%= a_discipline.level %>
           </a>
         </td>

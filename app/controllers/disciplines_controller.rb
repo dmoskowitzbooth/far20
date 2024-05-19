@@ -30,8 +30,35 @@ class DisciplinesController < ApplicationController
     the_discipline.notes = params.fetch("query_notes")
     the_discipline.title_for = params.fetch("query_title_for")
 
+    #Note
+    level=params.fetch("query_level")
+    discfor=params.fetch("query_title_for")
+    fa_emp=params.fetch("query_emp_id")
+    sup_emp=params.fetch("query_sup_id")
+
+    msg=Message.new
+    msg.emp_id=params.fetch("query_emp_id")
+    msg.subject="Disciplinary Action"
+    msg.sup_id=params.fetch("query_sup_id")
+    msg.message= <<~HTML
+    Dear #{fa_emp}, 
+    <br>
+
+    <p>Based on a review of your employee records and actions, you have been issued a #{level} for #{discfor}</p>
+
+<p>You can review the full details of this disciplinary action by visiting the Active Discipline section of your employee profile. As a reminder, disciplinary actions remain active for 365 days from the effective date.</p>
+
+<p>Please feel free to reach out to me if you have any questions or need additional support.</p>
+<br>
+<br>
+Thank you.
+#{sup_emp}
+HTML
+    #
+
     if the_discipline.valid?
       the_discipline.save
+      msg.save
       redirect_to("/disciplines", { :notice => "Discipline created successfully." })
     else
       redirect_to("/disciplines", { :alert => the_discipline.errors.full_messages.to_sentence })

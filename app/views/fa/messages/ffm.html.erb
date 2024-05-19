@@ -5,48 +5,52 @@
   </div>
   <div>
     <h1>
-      Message #<%= @the_message.id %> details
+      Subject: <%= @the_message.subject %>
     </h1>
-
-    <div>
-      <div>
-        <a href="/messages">
-          Go back
-        </a>
-      </div>
-    </div>
 
     <dl>
       <dt>
-        Emp
+        To
       </dt>
       <dd>
-        <%= @the_message.emp_id %>
+        <%= @the_message.employee.first_name %> <%= @the_message.employee.last_name %>
       </dd>
 
       <dt>
-        Sup
+        From
       </dt>
       <dd>
-        <%= @the_message.sup_id %>
+        <%= @the_message.supervisor.first_name %> <%= @the_message.supervisor.last_name %>
       </dd>
 
       <dt>
-        Subject
-      </dt>
-      <dd>
-        <%= @the_message.subject %>
-      </dd>
-
-
-
-      <dt>
-        Sent
+        Received
       </dt>
       <dd>
         <%= time_ago_in_words(@the_message.created_at) %> ago
       </dd>
+<div>
+  <div>
+    <h4>
+      Status
+    </h4>
+    <form action="/read_message/<%= @the_message.id %>"  method="post" >
+                  <div class="form-check">
+        <label for="read_box">
+          Status
+        </label>
 
+        <select id="read_box" name="query_read">
+         <option value="true" <%= 'selected' if @the_message.read %>>Read</option>
+          <option value="false" <%= 'selected' unless @the_message.read %>>Unread</option>
+          </select>
+      </div>
+            <button>
+        Update
+      </button>
+    </form>
+  </div>
+</div>
       <hr>
       <dd>
         <%= raw(@the_message.message) %>
@@ -58,28 +62,8 @@
 <hr>
 
 
-<div>
-  <div>
-    <h2>
-      Mark as read
-    </h2>
-    <form action="/read_message/<%= @the_message.id %>"  method="post" >
-                  <div class="form-check">
-        <label for="read_box">
-          Read
-        </label>
 
-        <select id="read_box" name="query_read">
-         <option value="true" <%= 'selected' if @the_message.read %>>Read</option>
-          <option value="false" <%= 'selected' unless @the_message.read %>>Unread</option>
-          </select>
-      </div>
 
-      <button>
-        Update
-      </button>
-    </form>
-  </div>
-</div>
+
 
 <hr>

@@ -1,5 +1,6 @@
 class FasController < ApplicationController
 
+
   def index
     the_id = params.fetch("path_id")
     today = Date.today

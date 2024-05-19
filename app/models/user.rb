@@ -22,4 +22,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  belongs_to :employee, class_name: 'Employee', primary_key: :emp_id, foreign_key: :emp_id
 end

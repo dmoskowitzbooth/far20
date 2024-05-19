@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
-  def index
 
+def index
     if params[:search].present?
       search_term = "%#{params[:search]}%"
       @list_of_employees = Employee.where("emp_id LIKE ? OR first_name LIKE ? OR last_name LIKE ?", search_term, search_term, search_term)
@@ -9,7 +9,10 @@ class EmployeesController < ApplicationController
     end
 
     render({ :template => "employees/index" })
+
   end
+
+
 
   def show
     the_id = params.fetch("path_id")

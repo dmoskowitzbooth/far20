@@ -30,7 +30,7 @@ class Employee < ApplicationRecord
       password_confirmation: 'password'  # Ensure password confirmation matches
     )
   end
-
+  belongs_to :user, class_name: 'User', primary_key: :emp_id, foreign_key: :emp_id
   has_many :disciplines_as_employee, class_name: 'Discipline', primary_key: :emp_id, foreign_key: :emp_id
   has_many :disciplines_as_supervisor, class_name: 'Discipline', primary_key: :emp_id, foreign_key: :sup_id
 

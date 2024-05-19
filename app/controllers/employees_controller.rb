@@ -12,6 +12,12 @@ def index
 
   end
 
+  def admin
+
+    render({ :template => "admin/admin" })
+
+  end
+
 
 
   def show

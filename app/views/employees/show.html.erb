@@ -271,63 +271,81 @@
 </div>
 
 <div>
-  <div>
+  <div class="container" style="width: 50%">
     <h2>
-      Add a new discipline
+     Issue discipline
     </h2>
 
     <form action="/insert_discipline" method="post">
-      <div>
+      <div class="row">
+      <div class="col">
+      <fieldset disabled>
         <label for="emp_id_box">
-          Emp
+          Employee ID
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_employee.emp_id%>">
+        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%= @the_employee.emp_id%>">
+        </fieldset>
       </div>
 
-      <div>
+      <div class="col">
+      <fieldset disabled>
         <label for="sup_id_box">
-          Sup
+          Supervisor
         </label>
 
-        <input type="text" id="sup_id_box" name="query_sup_id" value="<%= current_user.employee.emp_id%>">
+        <input type="text" id="sup_id_box" name="query_sup_id" class="form-control value="<%= current_user.employee.emp_id%>">
+        </fieldset>
+      </div>
       </div>
 
-      <div>
+      <div class="row">
+      <div class="col">
         <label for="level_box">
           Level
         </label>
 
-  <select id="level_box" name="query_level">
+  <select id="level_box" name="query_level" class="form-select" style="width: 100%">
          <option>C&C</option>
           <option>DVW</option>
           <option>DWW</option>
           <option>FTW</option>
           <option>TERM</option>
           </select>
+    </div>
 
-      <div>
+        <div class="col">
+        <label for="title_for_box">
+          Title for
+        </label>
+
+        <input type="text" id="title_for_box" name="query_title_for" class="form-control" style="width: 100%">
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
         <label for="effective_box">
           Effective
         </label>
 
-        <input type="date" id="effective_box" name="query_effective">
+        <input type="date" id="effective_box" name="query_effective" class="form-control">
       </div>
 
-      <div>
+      <div class="col"> 
         <label for="expires_box">
           Expires
         </label>
 
-        <input type="date" id="expires_box" name="query_expires">
+        <input type="date" id="expires_box" name="query_expires" class="form-control">
       </div>
-
+</div>
       <div>
         <label for="reason_box">
           Reason
         </label>
 
-        <textarea id="reason_box" name="query_reason"></textarea>
+        <textarea id="reason_box" name="query_reason" class="form-control"></textarea>
       </div>
 
       <div>
@@ -335,7 +353,7 @@
           Expectations
         </label>
 
-        <textarea id="expectations_box" name="query_expectations"></textarea>
+        <textarea id="expectations_box" name="query_expectations" class="form-control"></textarea>
       </div>
 
       <div>
@@ -343,118 +361,127 @@
           Notes
         </label>
 
-        <input type="text" id="notes_box" name="query_notes">
+        <textarea id="notes_box" name="query_notes" class="form-control"></textarea>
       </div>
 
-      <div>
-        <label for="title_for_box">
-          Title for
-        </label>
+  
 
-        <input type="text" id="title_for_box" name="query_title_for">
-      </div>
-
-      <button>
-        Create discipline
+      <button type="submit" class="btn btn-warning">
+        Issue discipline
       </button>
     </form>
   </div>
 </div>
 <hr>
 <div>
-  <div>
+  <div class="container" style="width: 50%">
     <h2>
       Edit employee
     </h2>
 
     <form action="/modify_employee/<%= @the_employee.emp_id %>"  method="post" >
-      <div>
-        <label for="first_name_box">
-          First name
-        </label>
+  
+      <div class="row g-3">
+    <div class="col-sm">
+      <label for="first_name_box">First name</label>
+      <input type="text" id="first_name_box" class="form-control" name="query_first_name" value="<%= @the_employee.first_name %>">
+    </div>
 
-        <input type="text" id="first_name_box" name="query_first_name" value="<%= @the_employee.first_name %>">
-      </div>
+    <div class="col-sm-5">
+      <label for="last_name_box">Last name</label>
+      <input type="text" id="last_name_box" class="form-control" name="query_last_name" value="<%= @the_employee.last_name %>">
+    </div>
 
-      <div>
-        <label for="last_name_box">
-          Last name
-        </label>
+    <div class="col-sm-2">
+      <label for="emp_id_box">Employee ID</label>
+      <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%= @the_employee.emp_id %>" disabled>
+    </div>
+  </div>
+  
 
-        <input type="text" id="last_name_box" name="query_last_name" value="<%= @the_employee.last_name %>">
-      </div>
-
-      <div>
+      <div class="row">
+      <div class="col">
         <label for="phone_box">
           Phone
         </label>
 
-        <input type="text" id="phone_box" name="query_phone" value="<%= @the_employee.phone %>">
+        <input type="text" id="phone_box" class="form-control"  name="query_phone" value="<%= @the_employee.phone %>">
       </div>
 
-        <div>
+        <div class="col">
         <label for="email_box">
           Email
         </label>
 
-        <input type="text" id="email_box" name="query_email" value="<%= @the_employee.email %>">
+        <input type="text" id="email_box" class="form-control"  name="query_email" value="<%= @the_employee.email %>">
+      </div>
       </div>
 
-      <div>
+  <div class="row g-4">
+      <div class="col">
         <label for="base_box">
           Base
         </label>
 
-        <input type="text" id="base_box" name="query_base" value="<%= @the_employee.base %>">
-      </div>
+        <select id="base_box" name="query_base" class="form-select" style="width: 100%">
+         <option>CHI</option>
+         <option>DEN</option>
+          <option>DFW</option>
+          <option>LAS</option>
+          <option>MCO</option>
+          <option>MIA</option>
+          <option>PHL</option>
+          <option>PHX</option>
+          <option>TPA</option>
+          </select>
+    </div>
+     
 
-      <div>
+      <div class="col">
         <label for="position_box">
           Position
         </label>
 
-      <select id="position_box" name="query_position">
+      <select id="position_box" name="query_position" class="form-select">
          <option value="fa" <%= 'selected' if @the_employee.position %>>FA</option>
           <option value="sup" <%= 'selected' unless @the_employee.position %>>SUP</option>
           </select>
       </div>
+      
 
-      <div>
-        <label for="emp_id_box">
-          Emp
-        </label>
-
-        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_employee.emp_id %>"disabled>
-      </div>
-
-      <div>
-        <label for="doh_box">
-          DOH
-        </label>
-
-        <input type="date" id="doh_box" name="query_doh" value="<%= @the_employee.doh %>">
-      </div>
-
-      <div>
+           <div class="col">
         <label for="access_box">
           Access
         </label>
 
-       <select id="access_box" name="query_access">
+       <select id="access_box" name="query_access" class="form-select">
          <option value="fa" <%= 'selected' if @the_employee.access %>>FA</option>
           <option value="sup" <%= 'selected' unless @the_employee.access %>>SUP</option>
           </select>
       </div>
+    
+
+
+
+      <div class="col">
+        <label for="doh_box">
+          DOH
+        </label>
+
+        <input type="date" class="form-control" id="doh_box" name="query_doh" value="<%= @the_employee.doh %>">
+      </div>
+</div>
+ 
 
       <div>
         <label for="image_box">
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_employee.image %>">
+        <input type="text" id="image_box" class="form-control" name="query_image" value="<%= @the_employee.image %>">
       </div>
 
-      <button>
+      <button type="submit" class="btn btn-primary">
         Update employee
       </button>
     </form>

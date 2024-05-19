@@ -1,6 +1,6 @@
     <div class="topnav">
   <a class="active" href="/employees">Employees</a>
-  <a href="/">Admin</a>
+  <a href="/admin">Admin</a>
   <a href="/users/sign_out">Sign Out</a>
 
 </div>
@@ -26,97 +26,7 @@
 <% end %>
 </div>
 
-<div class="container">
-  <div class="form">
-    <h2>
-      Add a new employee
-    </h2>
-    <form action="/insert_employee" method="post">
-      <div class="col-md6">
-        <label for="first_name_box" class="form-label">
-          First name
-        </label>
-        <input type="text" id="first_name_box" name="query_first_name" class="form-control">
-      </div>
 
-      <div class="col-md6"> 
-        <label for="last_name_box" class="form-label">
-          Last name
-        </label>
-
-        <input type="text" id="last_name_box" name="query_last_name" class="form-control">
-      </div>
-
-      <div>
-        <label for="phone_box" class="form-label">
-          Phone
-        </label>
-
-        <input type="text" id="phone_box" name="query_phone" class="form-control">
-      </div>
-
-        <div>
-        <label for="email_box" class="form-label">
-          Email
-        </label>
-
-        <input type="text" id="email_box" name="query_email" class="form-control">
-      </div>
-
-      <div>
-        <label for="base_box" class="form-label">
-          Base
-        </label>
-
-        <input type="text" id="base_box" name="query_base" class="form-control">
-      </div>
-
-      <div>
-        <label for="position_box" class="form-label">
-          Position
-        </label>
-
-        <input type="text" id="position_box" name="query_position" class="form-control">
-      </div>
-
-      <div>
-        <label for="emp_id_box" class="form-label">
-          Emp
-        </label>
-
-        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control">
-      </div>
-
-      <div>
-        <label for="doh_box" class="form-label">
-          Doh
-        </label>
-
-        <input type="date" id="doh_box" name="query_doh" class="form-control">
-      </div>
-
-      <div>
-        <label for="access_box" class="form-label">
-          Access
-        </label>
-
-        <input type="text" id="access_box" name="query_access" class="form-control">
-      </div>
-
-      <div>
-        <label for="image_box" class="form-label">
-          Image
-        </label>
-
-        <input type="text" id="image_box" class="form-control" name="query_image">
-      </div>
-
-      <button>
-        Create employee
-      </button>
-    </form>
-  </div>
-</div>
 
 <hr>
 <div>

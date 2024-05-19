@@ -18,13 +18,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          Emp
-        </th>
 
         <th>
           Sup
@@ -35,15 +28,7 @@
         </th>
 
         <th>
-          Message
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Received
         </th>
 
         <th>
@@ -52,36 +37,37 @@
 
       <% @list_of_messages.each do |a_message| %>
       <tr>
+<td>
+  <% if !a_message.read %>
+    <strong><%= a_message.sup_id%></strong>
+  <% else %>
+    <%= a_message.sup_id %>
+  <% end %>
+</td>
+
         <td>
-          <%= a_message.id %>
+      <% if !a_message.read %>
+    <strong><%= a_message.subject %></strong>
+  <% else %>
+    <%= a_message.subject %>
+  <% end %>
         </td>
 
         <td>
-          <%= a_message.emp_id %>
-        </td>
-
-        <td>
-          <%= a_message.sup_id %>
-        </td>
-
-        <td>
-          <%= a_message.subject %>
-        </td>
-
-        <td>
-          <%= a_message.message %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_message.created_at) %> ago
+          <% if !a_message.read %>
+    <strong> <%= time_ago_in_words(a_message.created_at) %> ago</strong>
+  <% else %>
+    <%= time_ago_in_words(a_message.created_at) %>
+  <% end %>
         </td>
         <td>
-          <%= time_ago_in_words(a_message.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/messages/<%= a_message.id %>">
-            Show details
+          <a href="/famessages/<%= a_message.id %>/<%= current_user.employee.emp_id%>">
+                    <% if !a_message.read %>
+    <strong> Show details</strong>
+  <% else %>
+    Show details
+  <% end %>
+            
           </a>
         </td>
       </tr>

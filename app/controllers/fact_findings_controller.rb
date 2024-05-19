@@ -26,6 +26,18 @@ class FactFindingsController < ApplicationController
     the_fact_finding.notes = params.fetch("query_notes")
     the_fact_finding.to_discuss = params.fetch("query_to_discuss")
 
+    # Note Creation
+    to_discuss=params.fetch("query_to_discuss")
+
+    note=Note.new
+    note.emp_id = params.fetch("query_emp_id")
+    note.sup_id = params.fetch("query_sup_id")
+    note.title="FFM Scheduled"
+    note.date=Date.today
+    note.note="FFM scheduled to discuss #{to_discuss}."
+    
+    #
+
     # ffm notice
     to_discuss=params.fetch("query_to_discuss")
     date = params.fetch("query_date")
@@ -38,20 +50,24 @@ class FactFindingsController < ApplicationController
     msg.emp_id=params.fetch("query_emp_id")
     msg.subject="FFM Notice"
     msg.sup_id=params.fetch("query_sup_id")
-    msg.message="Dear #{fa_emp},
-    In accordance with the Collective Bargaining Agreement (CBA), Article 18, Section B.1, a Fact-Finding Meeting has been scheduled for you to attend on #{date} at #{time} Base Local Time to discuss test.  Please confirm that you have received this FFM notification by marking this message as read.
+    msg.message= <<~HTML
+    Dear #{fa_emp}, 
+    <br>
 
-This meeting will take place in person at your base. This meeting will be attended by Inflight Leadership.
+    <p>In accordance with the Collective Bargaining Agreement (CBA), Article 18, Section B.1, a Fact-Finding Meeting has been scheduled for you to attend on #{date} at #{time} Base Local Time to discuss test.  Please confirm that you have received this FFM notification by marking this message as read.</p>
 
-If you need to reschedule for any reason, we will do a one time reschedule.  These meetings can only be scheduled on one of your days off and are typically not scheduled on weekends.
+<p>This meeting will take place in person at your base. This meeting will be attended by Inflight Leadership. </p>
 
-Since this meeting could lead to disciplinary action, you are entitled, if you wish, to have a union Representative join you in the meeting.  Please be advised that it is your responsibility to arrange for the Representative to attend. If they are unable to attend at the meeting time, you will need to request your one-time reschedule option.
+<p>If you need to reschedule for any reason, we will do a one time reschedule.  These meetings can only be scheduled on one of your days off and are typically not scheduled on weekends.</p>
 
-You may decline/not attend this meeting and accept the corrective action if you so choose. If you choose not to attend the meeting, you accept the appropriate corrective action.
+<p>Since this meeting could lead to disciplinary action, you are entitled, if you wish, to have a union Representative join you in the meeting.  Please be advised that it is your responsibility to arrange for the Representative to attend. If they are unable to attend at the meeting time, you will need to request your one-time reschedule option.</p>
 
+<p>You may decline/not attend this meeting and accept the corrective action if you so choose. If you choose not to attend the meeting, you accept the appropriate corrective action.</p>
+<br>
+<br>
 Thank you.
 #{sup_emp}
-"
+HTML
 
 
     ##
@@ -59,6 +75,7 @@ Thank you.
     if the_fact_finding.valid?
       the_fact_finding.save
       msg.save
+      note.save
       redirect_to("/fact_findings", { :notice => "Fact finding created successfully." })
     else
       redirect_to("/fact_findings", { :alert => the_fact_finding.errors.full_messages.to_sentence })

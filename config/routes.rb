@@ -176,6 +176,10 @@ Rails.application.routes.draw do
   get("/fa", { :controller => "fas", :action => "unauth" })
   get("/fadisciplines/:path_id/:emp_id", { :controller => "fas", :action => "dshow" })
 
+  get("/famessages/:path_id/:emp_id", { :controller => "fas", :action => "msgshow" })
+
+  post("/read_message/:path_id", { :controller => "fas", :action => "read_message" })
+
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
   # Define a custom route for FA

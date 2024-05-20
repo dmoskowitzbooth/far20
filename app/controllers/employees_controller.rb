@@ -26,6 +26,7 @@ def index
 
     matching_employees = Employee.where({ :emp_id => the_id })
 
+
     @the_employee = matching_employees.at(0)
 
     matching_disciplines = Discipline.where({ :emp_id => the_id }).where('expires >= ?', today)
@@ -38,6 +39,11 @@ def index
 
     @max_disciplines_exp = @list_of_disciplines.order({:expires => :desc}).first
 
+    matching_ffms = FactFinding.where({ :emp_id => the_id }).where('date>= ?', today)
+    matching_ffms_exp = FactFinding.where({ :emp_id => the_id }).where('date < ?', today)
+    @list_of_ffms = matching_ffms.order({ :date => :desc })
+    @list_of_ffms_exp = matching_ffms_exp.order({ :date => :desc })
+        
     #notes
     matching_notes = Note.where({ :emp_id => the_id })
     @list_of_notes = matching_notes.order({ :created_at => :desc })
@@ -75,7 +81,6 @@ def index
     the_employee.phone = params.fetch("query_phone")
     the_employee.base = params.fetch("query_base")
     the_employee.position = params.fetch("query_position")
-    the_employee.emp_id = params.fetch("query_emp_id")
     the_employee.doh = params.fetch("query_doh")
     the_employee.access = params.fetch("query_access")
     the_employee.image = params.fetch("query_image")

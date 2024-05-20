@@ -5,7 +5,7 @@ def index
       search_term = "%#{params[:search]}%"
       @list_of_employees = Employee.where("emp_id LIKE ? OR first_name LIKE ? OR last_name LIKE ?", search_term, search_term, search_term)
     else
-      @list_of_employees = Employee.all
+      @list_of_employees = Employee.order({ :last_name => :asc }).page(params[:page]).per(25)
     end
 
     render({ :template => "employees/index" })

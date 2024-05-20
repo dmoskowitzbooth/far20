@@ -34,21 +34,28 @@
     <h4>
       Status
     </h4>
-    <form action="/read_message/<%= @the_message.id %>"  method="post" >
+  
+    <% if @the_ffm.response.present? %>
+    Response: <%=@the_ffm.response%>
+      <%else%>
+   <form action="/read_message/<%= @the_message.id %>"  method="post" >
                   <div class="form-check">
+                     <div class="form-check">
         <label for="read_box">
-          Status
+          Response
         </label>
 
-        <select id="read_box" name="query_read">
-         <option value="true" <%= 'selected' if @the_message.read %>>Read</option>
-          <option value="false" <%= 'selected' unless @the_message.read %>>Unread</option>
+        <select id="response_box" name="query_response">
+         <option>Accept Meeting</option>
+          <option>Decline Meeting</option>
+          <option>Request Reschedule</option>
           </select>
       </div>
             <button>
         Update
       </button>
     </form>
+    <%end%>
   </div>
 </div>
       <hr>

@@ -67,8 +67,13 @@ class FasController < ApplicationController
       if params.fetch("emp_id")==current_user.emp_id.to_s
   
       matching_messages = Message.where({ :id => the_id })
-  
       @the_message = matching_messages.at(0)
+    
+      the_ffmid=@the_message.ffm_id
+
+      @the_ffm = FactFinding.where({ :id => the_ffmid }).at(0)
+  
+
   
       render({ :template => "fa/messages/ffm" })
     else 
@@ -78,12 +83,18 @@ class FasController < ApplicationController
 
     def read_message
       the_id = params.fetch("path_id")
+     
       the_message = Message.where({ :id => the_id }).at(0)
+      the_ffmid=the_message.ffm_id
+      the_ffm = FactFinding.where({ :id => the_ffmid }).at(0)
   
-      the_message.read = params.fetch("query_read")
+      the_message.read = "true"
+      the_ffm.response=params.fetch("query_response")
+      
   
       if the_message.valid?
         the_message.save
+        the_ffm.save
         redirect_to("/famessages/#{the_message.id}/#{the_message.emp_id}", { :notice => "Message updated successfully."} )
       else
         redirect_to("/famessages/#{the_message.id}/#{the_message.emp_id}", { :alert => the_message.errors.full_messages.to_sentence })

@@ -33,15 +33,16 @@ class DisciplinesController < ApplicationController
     the_discipline.title_for = params.fetch("query_title_for")
     the_discipline.ffm_id = params.fetch("query_ffm_id")
 
+  if params.fetch("query_ffm_id").present?
     ffm=params.fetch("query_ffm_id")
-
     the_fact_finding = FactFinding.where({ :id => ffm }).at(0)
-
     the_fact_finding.conclusion= params.fetch("query_level")
+    the_fact_finding.save
+  end
 
     if the_discipline.valid?
       the_discipline.save
-      the_fact_finding.save
+     
 
     #message
     level=params.fetch("query_level")
@@ -72,9 +73,9 @@ HTML
     msg.disc_id=the_discipline.id
     msg.ffm_id=the_discipline.ffm_id
       msg.save
-      redirect_to("/disciplines", { :notice => "Discipline created successfully." })
+      redirect_to(request.referer, { :notice => "Discipline created successfully." })
     else
-      redirect_to("/disciplines", { :alert => the_discipline.errors.full_messages.to_sentence })
+      redirect_to(request.referer, { :alert => the_discipline.errors.full_messages.to_sentence })
     end
   end
 

@@ -6,6 +6,7 @@
 #  conclusion :string
 #  date       :date
 #  notes      :string
+#  response   :string
 #  time       :time
 #  to_discuss :string
 #  created_at :datetime         not null

@@ -6,6 +6,7 @@
 #  effective    :date
 #  expectations :string
 #  expires      :date
+#  fasign       :string
 #  level        :string
 #  notes        :string
 #  reason       :string

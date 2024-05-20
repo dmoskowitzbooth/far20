@@ -39,6 +39,12 @@ class DisciplinesController < ApplicationController
 
     the_fact_finding.conclusion= params.fetch("query_level")
 
+    if the_discipline.valid?
+      the_discipline.save
+      
+      the_fact_finding.save
+      redirect_to("/disciplines", { :notice => "Discipline created successfully." })
+
     #message
     level=params.fetch("query_level")
     discfor=params.fetch("query_title_for")
@@ -63,13 +69,12 @@ class DisciplinesController < ApplicationController
 Thank you.
 
 HTML
+
+msg.disc_id=the_discipline.id
+msg.save
     #
 
-    if the_discipline.valid?
-      the_discipline.save
-      msg.save
-      the_fact_finding.save
-      redirect_to("/disciplines", { :notice => "Discipline created successfully." })
+  
     else
       redirect_to("/disciplines", { :alert => the_discipline.errors.full_messages.to_sentence })
     end

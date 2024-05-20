@@ -14,4 +14,5 @@
 #  sup_id     :integer
 #
 class FactFinding < ApplicationRecord
+  has_one :message
 end

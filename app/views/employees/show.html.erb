@@ -124,6 +124,76 @@
     </table>
   </div>
 </div>
+<div>
+  <div>
+     <div class="container" style="width: 50%">
+    <h2>
+      Add a new note
+    </h2>
+
+
+    <form action="/insert_note" method="post">
+    <div>
+      <div class="row">
+        <div class="col">
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date" class="form-control" value=<%=Date.today%>>
+        </div>
+
+      <div class="col">
+        <label for="emp_id_box">
+          Emp
+        </label>
+
+        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value=<%=@the_employee.emp_id%>>
+      </div>
+
+      <div class="col">
+        <label for="sup_id_box">
+          Sup
+        </label>
+
+        <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value=<%=current_user.emp_id%>>
+      </div>
+    </div>
+
+            <div>
+        <label for="disc_id_box">
+          Discipline ID
+        </label>
+
+        <input type="text" id="disc_id_box" name="query_disc_id" class="form-control">
+      </div>
+
+
+
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" class="form-control">
+      </div>
+
+      <div>
+        <label for="note_box">
+          Note
+        </label>
+
+        <input type="text" id="note_box" name="query_note" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Create note
+      </button>
+    </form>
+  </div>
+  </div>
+</div>
+  </div>
   </div>
   <div class="tab-pane fade" id="nav-discipline" role="tabpanel" aria-labelledby="nav-discipline-tab" tabindex="0">
 <div class="accordion" id="accordionExample">
@@ -285,6 +355,8 @@
     </table>
   </div>
 </div>
+
+
       </div>
     </div>
   </div>

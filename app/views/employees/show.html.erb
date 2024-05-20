@@ -547,6 +547,10 @@
           To Discuss
         </th>
 
+           <th>
+          FA Response
+        </th>
+
         <th>
           Notes
         </th>
@@ -561,6 +565,13 @@
 
         <td>
           <%= a_ffm.to_discuss %>
+        </td>
+            <td>
+          <%if a_ffm.response.present? %>
+          <%= a_ffm.response %>
+          <%else%>
+          Awaiting Response
+          <%end%>
         </td>
         <td>
           <%= a_ffm.notes %>
@@ -595,6 +606,10 @@
           To Discuss
         </th>
 
+         <th>
+          FA Response
+        </th>
+
         <th>
           Notes
         </th>
@@ -610,6 +625,15 @@
         <td>
           <%= a_ffm.to_discuss %>
         </td>
+
+          <td>
+          <%if a_ffm.response.present? %>
+          <%= a_ffm.response %>
+          <%else%>
+          Awaiting Response
+          <%end%>
+        </td>
+
         <td>
           <%= a_ffm.notes %>
         </td>

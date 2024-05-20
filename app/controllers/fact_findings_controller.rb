@@ -52,6 +52,7 @@ class FactFindingsController < ApplicationController
     msg.emp_id=params.fetch("query_emp_id")
     msg.subject="FFM Notice"
     msg.sup_id=params.fetch("query_sup_id")
+    msg.read="false"
     msg.message= <<~HTML
 
     <br>

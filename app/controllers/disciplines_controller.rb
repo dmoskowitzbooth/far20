@@ -40,6 +40,7 @@ class DisciplinesController < ApplicationController
     msg.emp_id=params.fetch("query_emp_id")
     msg.subject="Disciplinary Action"
     msg.sup_id=params.fetch("query_sup_id")
+    msg.read="false"
     msg.message= <<~HTML
 
 

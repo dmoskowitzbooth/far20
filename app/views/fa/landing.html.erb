@@ -3,55 +3,55 @@
   <a href="/famessages">Messaging</a>
   <a href="/users/sign_out">Sign Out</a>
   </div>
-<h1>
-      Hello, <%= current_user.employee.first_name %> <%= current_user.employee.last_name %>!
-    </h1>
+
 <%if @list_of_messages > 0 %>
+<div class="container text-center">
+    <div class="row align-items-center">
+    <h2>
+      Hello, <%= current_user.employee.first_name %> <%= current_user.employee.last_name %>!
+    </h2>
 <div class="alert alert-warning" role="alert">
 <a href="/famessages">You have <%=@list_of_messages%> unread message(s)!</a>
-  
+ </div>
+ </div> 
 </div>
 <%end%>
 
- <dd>
-        <td><img src="<%= current_user.employee.image %>" style="width:250px;"></td>
-      </dd>
+<div class="container text-center">
+    <div class="row align-items-center">
+      <div class="col">
+    <h1>
+      <%= current_user.employee.first_name %> <%= current_user.employee.last_name %>  | 
+       <%= current_user.emp_id %> 
+    </h1>
+      </div>
+    </div>
+  </div>
 
+<div class="container text-start">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <img src="<%= current_user.employee.image %>" style="width:250px;" class="img-fluid">
+    </div>
+    <div class="col-3">
+      <dl>
+        <dt>Base</dt>
+        <dd><%= current_user.employee.base %></dd>
 
-    <dl>
-          <dt>
-        Employee ID
-      </dt>
-      <dd>
-        <%= current_user.employee.emp_id %>
-      </dd>
-            <dt>
-        Base
-      </dt>
-      <dd>
-        <%= current_user.employee.base %>
-      </dd>
-      <dt>
-            <dt>
-        Email
-      </dt>
-      <dd>
-        <%= current_user.employee.email %>
-      </dd>
-      <dt>
-        Phone
-      </dt>
-      <dd>
-        <%= current_user.employee.phone %>
-      </dd>
+        <dt>Email</dt>
+        <dd><%= current_user.employee.email %></dd>
 
+        <dt>Phone</dt>
+        <dd><%= current_user.employee.phone %></dd>
 
-        <dt>
-        DOH
-      </dt>
-      <dd>
-        <%= current_user.employee.doh %>
-      </dd>
+        <dt>DOH</dt>
+        <dd><%= current_user.employee.doh %></dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<hr>
+
 
 <h2>Active Discipline</h2>
         <div>
@@ -168,3 +168,5 @@
     </table>
   </div>
 </div>
+
+  

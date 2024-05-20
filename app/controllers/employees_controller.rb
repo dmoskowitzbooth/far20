@@ -3,7 +3,7 @@ class EmployeesController < ApplicationController
 def index
     if params[:search].present?
       search_term = "%#{params[:search]}%"
-      @list_of_employees = Employee.where("emp_id LIKE ? OR first_name LIKE ? OR last_name LIKE ?", search_term, search_term, search_term)
+      @list_of_employees = Employee.order({ :last_name => :asc }).page(params[:page]).per(25).where("emp_id LIKE ? OR first_name LIKE ? OR last_name LIKE ?", search_term, search_term, search_term)
     else
       @list_of_employees = Employee.order({ :last_name => :asc }).page(params[:page]).per(25)
     end

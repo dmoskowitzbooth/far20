@@ -318,12 +318,11 @@
       <div class="col">
       <fieldset disabled>
         <label for="sup_id_box">
-          Supervisor
+          supervisor ID
         </label>
 
-        <input type="text" id="sup_id_box" name="query_sup_id" class="form-control value="<%= current_user.employee.emp_id%>">
+        <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value="<%= current_user.emp_id%>">
         </fieldset>
-      </div>
       </div>
 
       <div class="row">
@@ -427,7 +426,7 @@
 
     <div class="col-sm-2">
       <label for="emp_id_box">Employee ID</label>
-      <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%= @the_employee.emp_id %>" disabled>
+      <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%= @the_employee.emp_id %>">
     </div>
   </div>
   

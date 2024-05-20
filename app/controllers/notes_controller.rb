@@ -29,7 +29,7 @@ class NotesController < ApplicationController
 
     if the_note.valid?
       the_note.save
-      redirect_to("/notes", { :notice => "Note created successfully." })
+      redirect_to(request.referer, { notice: "Note created successfully." })
     else
       redirect_to("/notes", { :alert => the_note.errors.full_messages.to_sentence })
     end

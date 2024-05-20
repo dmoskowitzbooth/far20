@@ -3,6 +3,7 @@
 # Table name: fact_findings
 #
 #  id         :integer          not null, primary key
+#  conclusion :string
 #  date       :date
 #  notes      :string
 #  time       :time

@@ -18,7 +18,9 @@ class DisciplinesController < ApplicationController
     render({ :template => "disciplines/show" })
   end
 
+
   def create
+
     the_discipline = Discipline.new
     the_discipline.emp_id = params.fetch("query_emp_id")
     the_discipline.sup_id = params.fetch("query_sup_id")
@@ -29,8 +31,15 @@ class DisciplinesController < ApplicationController
     the_discipline.expectations = params.fetch("query_expectations")
     the_discipline.notes = params.fetch("query_notes")
     the_discipline.title_for = params.fetch("query_title_for")
+    the_discipline.ffm_id = params.fetch("query_ffm_id")
 
-    #Note
+    ffm=params.fetch("query_ffm_id")
+
+    the_fact_finding = FactFinding.where({ :id => ffm }).at(0)
+
+    the_fact_finding.conclusion= params.fetch("query_level")
+
+    #message
     level=params.fetch("query_level")
     discfor=params.fetch("query_title_for")
     fa_emp=params.fetch("query_emp_id")
@@ -59,6 +68,7 @@ HTML
     if the_discipline.valid?
       the_discipline.save
       msg.save
+      the_fact_finding.save
       redirect_to("/disciplines", { :notice => "Discipline created successfully." })
     else
       redirect_to("/disciplines", { :alert => the_discipline.errors.full_messages.to_sentence })

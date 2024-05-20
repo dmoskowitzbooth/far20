@@ -1,0 +1,5 @@
+class AddFfmToDisciplines < ActiveRecord::Migration[7.0]
+  def change
+    add_column :disciplines, :ffm_id, :integer
+  end
+end

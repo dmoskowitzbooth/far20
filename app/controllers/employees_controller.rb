@@ -41,8 +41,10 @@ def index
 
     matching_ffms = FactFinding.where({ :emp_id => the_id }).where('date>= ?', today)
     matching_ffms_exp = FactFinding.where({ :emp_id => the_id }).where('date < ?', today)
+    pending_disc = FactFinding.where({ :emp_id => the_id }).where('date<= ?', today).where('conclusion IS NULL OR conclusion = ?', '')
     @list_of_ffms = matching_ffms.order({ :date => :desc })
     @list_of_ffms_exp = matching_ffms_exp.order({ :date => :desc })
+    @list_of_pending_disc=pending_disc.order({:date => :desc})
         
     #notes
     matching_notes = Note.where({ :emp_id => the_id })

@@ -374,6 +374,49 @@
      Issue discipline
     </h2>
 
+      <div>
+    <table class="table table-striped">
+      <tr>
+        <th>
+          FFM ID
+        </th>
+        <th>
+          Date
+        </th>
+
+        <th>
+          To Discuss
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+      <% @list_of_pending_disc.each do |a_ffm| %>
+      <tr>
+       <td>
+          <a href="/fact_findings/<%= a_ffm.id %>">
+            <%= a_ffm.id %>
+          </a>
+        </td>
+        <td>
+          <a href="/fact_findings/<%= a_ffm.id %>">
+            <%= a_ffm.date %> <%= a_ffm.time %> 
+          </a>
+        </td>
+
+        <td>
+          <%= a_ffm.to_discuss %>
+        </td>
+        <td>
+          <%= a_ffm.notes %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+
     <form action="/insert_discipline" method="post">
       <div class="row">
       <div class="col">
@@ -390,6 +433,12 @@
 
     <label for="sup_id_box">Supervisor</label>
     <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value="<%= current_user.emp_id %>">
+
+      </div>
+      <div class="col">
+
+    <label for="ffm_id_box">FFM ID</label>
+    <input type="text" id="ffm_id_box" name="query_ffm_id" class="form-control">
 
       </div>
       </div>

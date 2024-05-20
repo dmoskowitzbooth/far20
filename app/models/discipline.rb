@@ -13,6 +13,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  emp_id       :integer
+#  ffm_id       :integer
 #  sup_id       :integer
 #
 class Discipline < ApplicationRecord

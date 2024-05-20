@@ -51,6 +51,29 @@
 </div>
 <hr>
 
+
+
+<hr>
+      <div>
+        <a href="/delete_employee/<%= @the_employee.emp_id %>">
+          Delete employee
+        </a>
+      </div>
+    </div>
+
+
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-notes-tab" data-bs-toggle="tab" data-bs-target="#nav-notes" type="button" role="tab" aria-controls="nav-notes" aria-selected="true">Notes</button>
+    <button class="nav-link" id="nav-discipline-tab" data-bs-toggle="tab" data-bs-target="#nav-discipline" type="button" role="tab" aria-controls="nav-discipline" aria-selected="false">Discipline</button>
+    <button class="nav-link" id="nav-edit-tab" data-bs-toggle="tab" data-bs-target="#nav-edit" type="button" role="tab" aria-controls="nav-edit" aria-selected="false">Edit Employee</button>
+
+
+  </div>
+</nav>
+<div class="tab-content" id="nav-tab">
+  <div class="tab-pane fade show active" id="nav-notes" role="tabpanel" aria-labelledby="nav-notes-tab" tabindex="0">
 <h2>Notes</h2>
 
 <div>
@@ -102,9 +125,8 @@
     </table>
   </div>
 </div>
-
-<hr>
-
+  </div>
+  <div class="tab-pane fade" id="nav-discipline" role="tabpanel" aria-labelledby="nav-discipline-tab" tabindex="0">
 <h2>Active Discipline</h2>
         <div>
       <% if @max_disciplines.present? %>
@@ -350,9 +372,10 @@
     </form>
   </div>
 </div>
-<hr>
+  </div>
+  <div class="tab-pane fade" id="nav-edit" role="tabpanel" aria-labelledby="nav-edit-tab" tabindex="0">
 <div>
-  <div class="container" style="width: 50%">
+ <div class="container" style="width: 50%">
     <h2>
       Edit employee
     </h2>
@@ -465,11 +488,5 @@
     </form>
   </div>
 </div>
-
-<hr>
-      <div>
-        <a href="/delete_employee/<%= @the_employee.emp_id %>">
-          Delete employee
-        </a>
-      </div>
-    </div>
+  </div>
+</div>

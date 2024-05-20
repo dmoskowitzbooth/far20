@@ -11,7 +11,7 @@ class FasController < ApplicationController
     @the_employee = matching_employees.at(0)
 
     matching_disciplines = Discipline.where({ :emp_id => the_id }).where('expires >= ?', today)
-    matching_messages =Message.where({ :emp_id => the_id }).where('read == false')
+    matching_messages =Message.where({ :emp_id => the_id }).where('read != true')
     matching_disciplines_exp = Discipline.where({ :emp_id => the_id }).where('expires < ?', today)
     @list_of_disciplines = matching_disciplines.order({ :level => :desc })
     @list_of_disciplines_exp = matching_disciplines_exp.order({ :expires => :desc })

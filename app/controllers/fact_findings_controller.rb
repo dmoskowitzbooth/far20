@@ -45,6 +45,7 @@ class FactFindingsController < ApplicationController
     time = params.fetch("query_time")
     fa_emp=params.fetch("query_emp_id")
     sup_emp=params.fetch("query_sup_id")
+    
 
 
     msg=Message.new
@@ -52,9 +53,8 @@ class FactFindingsController < ApplicationController
     msg.subject="FFM Notice"
     msg.sup_id=params.fetch("query_sup_id")
     msg.message= <<~HTML
-    Dear #{fa_emp}, 
-    <br>
 
+    <br>
     <p>In accordance with the Collective Bargaining Agreement (CBA), Article 18, Section B.1, a Fact-Finding Meeting has been scheduled for you to attend on #{date} at #{time} Base Local Time to discuss #{to_discuss}.  Please confirm that you have received this FFM notification by marking this message as read.</p>
 
 <p>This meeting will take place in person at your base. This meeting will be attended by Inflight Leadership. </p>
@@ -65,9 +65,8 @@ class FactFindingsController < ApplicationController
 
 <p>You may decline/not attend this meeting and accept the corrective action if you so choose. If you choose not to attend the meeting, you accept the appropriate corrective action.</p>
 <br>
-<br>
 Thank you.
-#{sup_emp}
+
 HTML
 
 

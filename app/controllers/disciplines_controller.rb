@@ -41,8 +41,7 @@ class DisciplinesController < ApplicationController
     msg.subject="Disciplinary Action"
     msg.sup_id=params.fetch("query_sup_id")
     msg.message= <<~HTML
-    Dear #{fa_emp}, 
-    <br>
+
 
     <p>Based on a review of your employee records and actions, you have been issued a #{level} for #{discfor}</p>
 
@@ -52,7 +51,7 @@ class DisciplinesController < ApplicationController
 <br>
 <br>
 Thank you.
-#{sup_emp}
+
 HTML
     #
 

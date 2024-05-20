@@ -433,8 +433,8 @@
       <% @list_of_ffms.each do |a_ffm| %>
       <tr>
         <td>
-          <a href="/fact_findings/<%= a_fact_finding.id %>">
-            <%= a_ffm.date %> <%= a_ffm.date %> 
+          <a href="/fact_findings/<%= a_ffm.id %>">
+            <%= a_ffm.date %> <%= a_ffm.time %> 
           </a>
         </td>
 
@@ -481,8 +481,8 @@
       <% @list_of_ffms_exp.each do |a_ffm| %>
       <tr>
         <td>
-          <a href="/fact_findings/<%= a_fact_finding.id %>">
-            <%= a_ffm.date %> <%= a_ffm.date %> 
+          <a href="/fact_findings/<%= a_ffm.id %>">
+            <%= a_ffm.date %> <%= a_ffm.time %> 
           </a>
         </td>
 
@@ -517,20 +517,19 @@
        <form action="/insert_fact_finding" method="post">
       <div class="row">
       <div class="col">
-           <fieldset disabled>
+     
         <label for="emp_id_box">
           Employee ID
         </label>
 
         <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%= @the_employee.emp_id%>">
-        </fieldset>
+
       </div>
 
 <div class="col">
-  <fieldset disabled>
     <label for="sup_id_box">Supervisor</label>
     <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value="<%= current_user.emp_id %>">
-  </fieldset>
+ 
 </div>
     </div>
 

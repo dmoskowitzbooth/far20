@@ -110,13 +110,13 @@ footer {
       <%else%>
       <form action="/sign_discipline/<%= @the_discipline.id %>"  method="post" >
         <label for="signature_box">
-          FA Signature
+          FA Signature:
         </label>
-
-        <input type="text" id="signature_box" name="query_signature">
+        <div style="display: flex; justify-content: center; align-items: center;">
+        <input type="text" id="signature_box" name="query_signature" class="form-control" style="width: 25%">
       </div>
-     
-      <button>
+     </div>
+      <button type="submit" class="btn btn-light">
         Sign
       </button>
     </form>

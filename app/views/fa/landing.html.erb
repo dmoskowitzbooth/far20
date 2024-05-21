@@ -4,6 +4,7 @@
     <h2>
       Hello, <%= current_user.employee.first_name %> <%= current_user.employee.last_name %>!
     </h2>
+
 <%if @list_of_messages > 0 %>
 <div class="alert alert-warning" role="alert">
 <a href="/famessages">You have <%=@list_of_messages%> unread message(s)!</a>
@@ -56,8 +57,14 @@
         <h4 style= "color: green">No Active Discipline</h4>
       <% end %>
     </div>
-
-<div>
+<%if @list_of_disciplines.where(fasign: [nil, '']).count > 0 %>
+<div class="alert alert-danger" role="alert">
+You have <%=@list_of_disciplines.where(fasign: [nil, '']).count%> disciplinary record(s) requiring action!
+ </div>
+ </div> 
+</div>
+<%end%>
+<div class="container">
   <div>
     <table class="table table-striped">
       <tr>
@@ -76,6 +83,10 @@
 
         <th>
           Expires
+        </th>
+
+         <th>
+          Signature
         </th>
 
 
@@ -100,10 +111,18 @@
           <%= a_discipline.expires %>
         </td>
 
-
-        <td>
-        
+      <%if a_discipline.fasign.present?%>
+            <td>
+          Signed: <%= a_discipline.updated_at %>
         </td>
+      <%else%>
+           <td>
+              <a href="/fadisciplines/<%= a_discipline.id %>/<%= current_user.employee.emp_id%>">
+                   <strong>Signature required!</strong>
+          </a>
+        </td>
+      <%end%>
+       
       </tr>
       <% end %>
     </table>
@@ -114,7 +133,7 @@
 
 <h3>Expired Discipline</h3>
 
-<div>
+<div class="container">
   <div>
     <table class="table table-striped">
       <tr>

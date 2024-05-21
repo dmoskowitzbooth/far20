@@ -111,7 +111,7 @@ class FasController < ApplicationController
   
       if the_discipline.valid?
         the_discipline.save
-        redirect_to(request.referer { :notice => "Discipline updated successfully."} )
+        redirect_to("/fa.#{current_user.emp_id}", { :notice => "PCR signed successfully."} )
       else
         redirect_to(request.referer)
       end

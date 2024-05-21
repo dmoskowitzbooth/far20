@@ -111,13 +111,13 @@
           Employee ID
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%= @the_fact_finding.emp_id%>">
+        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control-plaintext" value="<%= @the_fact_finding.emp_id%>">
 
       </div>
 
 <div class="col">
     <label for="sup_id_box">Supervisor</label>
-    <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value="<%= current_user.emp_id %>">
+    <input type="text" id="sup_id_box" name="query_sup_id" class="form-control-plaintext" value="<%= current_user.emp_id %>">
  
 </div>
     </div>
@@ -221,20 +221,20 @@
           Employee ID
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%=@the_fact_finding.emp_id%>">
+        <input type="text" id="emp_id_box" readonly class="form-control-plaintext" name="query_emp_id"  value="<%=@the_fact_finding.emp_id%>">
 
       </div>
 
 <div class="col">
 
     <label for="sup_id_box">Supervisor</label>
-    <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value="<%=current_user.emp_id%>">
+    <input type="text" id="sup_id_box" name="query_sup_id" readonly class="form-control-plaintext" value="<%=current_user.emp_id%>">
 
       </div>
       <div class="col">
 
     <label for="ffm_id_box">FFM ID</label>
-    <input type="text" id="ffm_id_box" name="query_ffm_id" class="form-control" value="<%=@the_fact_finding.id%>">
+    <input type="text" id="ffm_id_box" name="query_ffm_id" readonly class="form-control-plaintext" value="<%=@the_fact_finding.id%>">
 
       </div>
       </div>

@@ -120,23 +120,23 @@
           Date
         </label>
 
-        <input type="date" id="date_box" name="query_date" class="form-control" value=<%=Date.today%>>
+        <input type="date" id="date_box" name="query_date" class="form-control-plaintext" value=<%=Date.today%>>
         </div>
 
       <div class="col">
         <label for="emp_id_box">
-          Emp
+          Employee
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value=<%=@the_employee.emp_id%>>
+        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control-plaintext" value=<%=@the_employee.emp_id%>>
       </div>
 
       <div class="col">
         <label for="sup_id_box">
-          Sup
+          Supervisor
         </label>
 
-        <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value=<%=current_user.emp_id%>>
+        <input type="text" id="sup_id_box" name="query_sup_id" class="form-control-plaintext" value=<%=current_user.emp_id%>>
       </div>
     </div>
 
@@ -416,14 +416,14 @@
           Employee ID
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%= @the_employee.emp_id%>">
+        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control-plaintext" value="<%= @the_employee.emp_id%>">
 
       </div>
 
 <div class="col">
 
     <label for="sup_id_box">Supervisor</label>
-    <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value="<%= current_user.emp_id %>">
+    <input type="text" id="sup_id_box" name="query_sup_id" class="form-control-plaintext" value="<%= current_user.emp_id %>">
 
       </div>
       <div class="col">
@@ -542,15 +542,11 @@
           FA Response
         </th>
 
-        <th>
-          Notes
-        </th>
-
       <% @list_of_ffms.each do |a_ffm| %>
       <tr>
         <td>
           <a href="/fact_findings/<%= a_ffm.id %>">
-            <%= a_ffm.date %> <%= a_ffm.time %> 
+           <%= a_ffm.date.strftime("%-m/%-d/%y") %> <%= a_ffm.time.strftime("%H:%M") %>
           </a>
         </td>
 
@@ -563,9 +559,6 @@
           <%else%>
           Awaiting Response
           <%end%>
-        </td>
-        <td>
-          <%= a_ffm.notes %>
         </td>
       </tr>
       <% end %>
@@ -601,15 +594,11 @@
           FA Response
         </th>
 
-        <th>
-          Notes
-        </th>
-
       <% @list_of_ffms_exp.each do |a_ffm| %>
       <tr>
         <td>
           <a href="/fact_findings/<%= a_ffm.id %>">
-            <%= a_ffm.date %> <%= a_ffm.time %> 
+             <%= a_ffm.date.strftime("%-m/%-d/%y") %> <%= a_ffm.time.strftime("%H:%M") %>
           </a>
         </td>
 
@@ -625,9 +614,6 @@
           <%end%>
         </td>
 
-        <td>
-          <%= a_ffm.notes %>
-        </td>
       </tr>
       <% end %>
     </table>
@@ -658,13 +644,13 @@
           Employee ID
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%= @the_employee.emp_id%>">
+        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control-plaintext" value="<%= @the_employee.emp_id%>">
 
       </div>
 
 <div class="col">
     <label for="sup_id_box">Supervisor</label>
-    <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value="<%= current_user.emp_id %>">
+    <input type="text" id="sup_id_box" name="query_sup_id" class="form-control-plaintext" value="<%= current_user.emp_id %>">
  
 </div>
     </div>
@@ -697,10 +683,10 @@
 
       <div>
         <label for="notes_box">
-          Notes
+          Meeting Notes
         </label>
 
-        <input type="text" id="notes_box" name="query_notes" class="form-control">
+        <textarea id="notes_box" name="query_notes" class="form-control"></textarea>
       </div>
 
    
@@ -769,22 +755,22 @@
 
   <div class="row g-4">
       <div class="col">
-        <label for="base_box">
-          Base
-        </label>
+  <label for="base_box">
+    Base
+  </label>
 
-        <select id="base_box" name="query_base" class="form-select" style="width: 100%">
-         <option>CHI</option>
-         <option>DEN</option>
-          <option>DFW</option>
-          <option>LAS</option>
-          <option>MCO</option>
-          <option>MIA</option>
-          <option>PHL</option>
-          <option>PHX</option>
-          <option>TPA</option>
-          </select>
-    </div>
+  <select id="base_box" name="query_base" class="form-select" style="width: 100%">
+    <option value="CHI" <%= 'selected' if @the_employee.base == 'CHI' %>>CHI</option>
+    <option value="DEN" <%= 'selected' if @the_employee.base == 'DEN' %>>DEN</option>
+    <option value="DFW" <%= 'selected' if @the_employee.base == 'DFW' %>>DFW</option>
+    <option value="LAS" <%= 'selected' if @the_employee.base == 'LAS' %>>LAS</option>
+    <option value="MCO" <%= 'selected' if @the_employee.base == 'MCO' %>>MCO</option>
+    <option value="MIA" <%= 'selected' if @the_employee.base == 'MIA' %>>MIA</option>
+    <option value="PHL" <%= 'selected' if @the_employee.base == 'PHL' %>>PHL</option>
+    <option value="PHX" <%= 'selected' if @the_employee.base == 'PHX' %>>PHX</option>
+    <option value="TPA" <%= 'selected' if @the_employee.base == 'TPA' %>>TPA</option>
+  </select>
+</div>
      
 
       <div class="col">
@@ -793,8 +779,8 @@
         </label>
 
       <select id="position_box" name="query_position" class="form-select">
-         <option value="fa" <%= 'selected' if @the_employee.position %>>FA</option>
-          <option value="sup" <%= 'selected' unless @the_employee.position %>>SUP</option>
+         <option value="fa" <%= 'selected' if @the_employee.position=='FA' %>>FA</option>
+          <option value="sup" <%= 'selected' unless @the_employee.position=='SUP' %>>SUP</option>
           </select>
       </div>
       

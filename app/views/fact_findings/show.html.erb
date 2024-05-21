@@ -1,54 +1,46 @@
+<div class="container">
 <div>
   <div>
     <h1>
-      Fact finding #<%= @the_fact_finding.id %> details
+      FFM: <%= @the_fact_finding.employee.first_name %> <%= @the_fact_finding.employee.last_name %> on <%= @the_fact_finding.date.strftime("%-m/%-d/%y") %>
     </h1>
 
     <div>
-      <div>
-        <a href="/fact_findings">
-          Go back
-        </a>
-      </div>
+    
 
-      <div>
-        <a href="/delete_fact_finding/<%= @the_fact_finding.id %>">
-          Delete fact finding
-        </a>
-      </div>
-    </div>
+   
 
     <dl>
       <dt>
         Emp
       </dt>
       <dd>
-        <%= @the_fact_finding.emp_id %>
+        <%= @the_fact_finding.employee.first_name %> <%= @the_fact_finding.employee.last_name %>
       </dd>
 
       <dt>
         Date
       </dt>
       <dd>
-        <%= @the_fact_finding.date %>
+        <%= @the_fact_finding.date.strftime("%-m/%-d/%y") %>
       </dd>
-
+ 
       <dt>
         Time
       </dt>
       <dd>
-        <%= @the_fact_finding.time %>
+        <%= @the_fact_finding.time.strftime("%H:%M") %>
       </dd>
 
       <dt>
         Sup
       </dt>
       <dd>
-        <%= @the_fact_finding.sup_id %>
+        <%= @the_fact_finding.supervisor.first_name %> <%= @the_fact_finding.supervisor.last_name %>
       </dd>
 
       <dt>
-        Notes
+       Meeting Notes
       </dt>
       <dd>
         <%= @the_fact_finding.notes %>
@@ -62,18 +54,31 @@
       </dd>
 
       <dt>
-        Created at
+        Created
       </dt>
       <dd>
         <%= time_ago_in_words(@the_fact_finding.created_at) %> ago
       </dd>
 
       <dt>
-        Updated at
+        Updated
       </dt>
       <dd>
         <%= time_ago_in_words(@the_fact_finding.updated_at) %> ago
       </dd>
+
+        <dt>
+        FA Response
+      </dt>
+    <%if @the_fact_finding.response.present? %>
+      <dd>
+        <%= @the_fact_finding.response %>
+      </dd>
+    <%else%>
+     <dd>
+        Awaiting Response
+      </dd>
+    <%end%>
     </dl>
   </div>
 </div>
@@ -81,61 +86,76 @@
 <hr>
 
 
-<div>
-  <div>
-    <h2>
-      Edit fact finding
+
+
+
+    <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Edit Fact Finding Meeting
+      </button>
     </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+     <div>
+    <h3>
+      Edit Fact Finding Meeting
+    </h3>
 
     <form action="/modify_fact_finding/<%= @the_fact_finding.id %>"  method="post" >
-      <div>
+      <div class="row">
+      <div class="col">
+     
         <label for="emp_id_box">
-          Emp
+          Employee ID
         </label>
 
-        <input type="text" id="emp_id_box" name="query_emp_id" value="<%= @the_fact_finding.emp_id %>">
+        <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" value="<%= @the_fact_finding.emp_id%>">
+
       </div>
 
-      <div>
+<div class="col">
+    <label for="sup_id_box">Supervisor</label>
+    <input type="text" id="sup_id_box" name="query_sup_id" class="form-control" value="<%= current_user.emp_id %>">
+ 
+</div>
+    </div>
+      <div class="row">
+      <div class="col">
         <label for="date_box">
           Date
         </label>
 
-        <input type="date" id="date_box" name="query_date" value="<%= @the_fact_finding.date %>">
+        <input type="date" id="date_box" name="query_date" class="form-control" value="<%= @the_fact_finding.date %>">
       </div>
 
-      <div>
+      <div class="col">
         <label for="time_box">
           Time
         </label>
 
-        <input type="time" id="time_box" name="query_time" value="<%= @the_fact_finding.time %>">
-      </div>
-<% if @the_fact_finding.response = "Request Reschedule"%>
-          <div>
+        <input type="time" id="time_box" name="query_time" class="form-control" value="<%= @the_fact_finding.time.strftime('%H:%M') %>">
+</div>
+<% if @the_fact_finding.response == "Request Reschedule"%>
+          <div class="row">
+      <div class="col">
         <label for="date2_box">
           Rescheduled Date
         </label>
 
-        <input type="date" id="date_box2" name="query_date2">
+        <input type="date" id="date_box2" name="query_date2" class="form-control">
       </div>
 
-      <div>
+      <div class="col">
         <label for="time2_box">
           Rescheduled Time
         </label>
 
-        <input type="time" id="time2_box" name="query_time2">
+        <input type="time" id="time2_box" name="query_time2" class="form-control">
+      </div>
       </div>
       <%end%>
-
-      <div>
-        <label for="sup_id_box">
-          Sup
-        </label>
-
-        <input type="text" id="sup_id_box" name="query_sup_id" value="<%= @the_fact_finding.sup_id %>">
-      </div>
 
 
 
@@ -144,35 +164,54 @@
           To discuss
         </label>
 
-        <input type="text" id="to_discuss_box" name="query_to_discuss" value="<%= @the_fact_finding.to_discuss %>">
+        <input type="text" id="to_discuss_box" name="query_to_discuss" class="form-control" value="<%= @the_fact_finding.to_discuss %>">
       </div>
   
-      <button>
-        Update fact finding
+      <button type="submit" class="btn btn-primary">
+        Update Meeting
       </button>
     </form>
   </div>
-</div>
-
-<hr>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Meeting Notes
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
    <div>
+   <h4>Add Meeting Notes</h4>
    <form action="/meetingnotes_fact_finding/<%= @the_fact_finding.id %>"  method="post" >
         <label for="notes_box">
          Meeting Notes
         </label>
 
 <%if @the_fact_finding.notes.present?%>
-        <textarea id="notes_box" name="query_notes"><%= @the_fact_finding.notes%></textarea>
+        <textarea id="notes_box" class="form-control" name="query_notes"><%= @the_fact_finding.notes%></textarea>
 <%else%>
-  <textarea id="notes_box" name="query_notes"></textarea>
+  <textarea id="notes_box" class="form-control" name="query_notes"></textarea>
 <%end%>
-           <button>
+           <button type="submit" class="btn btn-primary">
         Save Meeting Notes
       </button>
         </form>
       </div>
-  <hr>
-
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Issue Conclusion/Discipline
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <h4>Issue Conclusion/Discipline</h4>
    <form action="/insert_discipline" method="post">
       <div class="row">
       <div class="col">
@@ -270,3 +309,14 @@
         Issue discipline
       </button>
     </form>
+      </div>
+    </div>
+  </div>
+</div>
+       <div>
+        <a href="/delete_fact_finding/<%= @the_fact_finding.id %>">
+          Delete fact finding
+        </a>
+      </div>
+    </div>
+</div>

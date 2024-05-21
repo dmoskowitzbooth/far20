@@ -12,6 +12,22 @@
 
 
   </head>
+  <% if current_user.employee.access=="SUP"%>
+  <nav>
+    <div class="topnav">
+  <a class="active" href="/employees">Employees</a>
+  <a href="/admin">Admin</a>
+  <a href="/users/sign_out">Sign Out</a>
+  </nav>
+  <%else%>
+  <nav>
+      <div class="topnav">
+  <a class="active" href="/fa.<%= current_user.employee.emp_id%>">My Profile</a>
+  <a href="/famessages">Messaging</a>
+  <a href="/users/sign_out">Sign Out</a>
+  </div>
+</nav>
+<%end%>
 
 
          <p class="notice"><%= notice %></p>

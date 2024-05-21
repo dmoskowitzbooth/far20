@@ -36,7 +36,7 @@ class Users::SessionsController < Devise::SessionsController
         when 'SUP'
           employees_path # Redirect to /disciplines for SUP access
         else
-          root_path # Default path if no access or other access levels
+          fa_path(employee.emp_id)# Default path if no access or other access levels
         end
       else
         root_path # Redirect to root if no employee is found

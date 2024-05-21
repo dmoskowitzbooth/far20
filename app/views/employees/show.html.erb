@@ -1,15 +1,4 @@
-    <div class="topnav">
-  <a class="active" href="/employees">Employees</a>
-  <a href="/">Admin</a>
-  <a href="/users/sign_out">Sign Out</a>
 
-</div>
-
-      <div>
-        <a href="/employees">
-          Go back
-        </a>
-      </div>
 
   <div class="container text-center">
     <div class="row align-items-center">
@@ -51,15 +40,6 @@
 </div>
 <hr>
 
-
-
-<hr>
-      <div>
-        <a href="/delete_employee/<%= @the_employee.emp_id %>">
-          Delete employee
-        </a>
-      </div>
-    </div>
 
 
 
@@ -845,6 +825,12 @@
       </button>
     </form>
   </div>
+        <div>
+        <a href="/delete_employee/<%= @the_employee.emp_id %>">
+          Delete employee
+        </a>
+      </div>
+    </div>
 </div>
   </div>
 </div>

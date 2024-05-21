@@ -73,6 +73,7 @@ Rails.application.routes.draw do
   # UPDATE
   
   post("/modify_discipline/:path_id", { :controller => "disciplines", :action => "update" })
+  post("/sign_discipline/:path_id", { :controller => "fas", :action => "signdisc" })
   
   # DELETE
   get("/delete_discipline/:path_id", { :controller => "disciplines", :action => "destroy" })

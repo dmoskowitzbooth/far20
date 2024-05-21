@@ -101,6 +101,28 @@ footer {
 <footer>
   <p>Issued by: <%= @the_discipline.supervisor.first_name%> <%= @the_discipline.supervisor.last_name%></p>
   <p>Effective through: <%= @the_discipline.expires%></p>
+
+    
+      <div>
+       <p> <em>By e-signing this PCR, I confirm my understanding of the reasons for the disciplinary action and expectations for sustained improvement. I further understand that failrue to comply with these expectations is grounds for further disciplinary action up to and including termination.</em></p>
+       <%if @the_discipline.fasign.present?%>
+      <strong>This PCR was electronically signed by <%=current_user.employee.first_name%> <%=current_user.employee.first_name%> on <%= @the_discipline.updated_at%>.</strong>
+      <%else%>
+      <form action="/sign_discipline/<%= @the_discipline.id %>"  method="post" >
+        <label for="signature_box">
+          FA Signature
+        </label>
+
+        <input type="text" id="signature_box" name="query_signature">
+      </div>
+     
+      <button>
+        Sign
+      </button>
+    </form>
+  </div>
+  <%end%>
+</div>
 </footer>
 
 </body>

@@ -92,6 +92,13 @@
         <%= raw(@the_message.message) %>
         <br>
         <%= @the_message.supervisor.first_name %> <%= @the_message.supervisor.last_name%>
+        <br>
+     <%if @the_message.disc_id.present?%>
+            <a href="/fadisciplines/<%= @the_message.disc_id %>/<%= current_user.employee.emp_id%>">
+           Please review the performance counseling record and sign it to confirm you understand the expectations therein.
+          </a>
+        <%end%>
+
       </dd>
     </dl>
   </div>

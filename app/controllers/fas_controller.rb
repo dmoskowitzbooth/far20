@@ -103,7 +103,19 @@ class FasController < ApplicationController
         redirect_to("/famessages/#{the_message.id}/#{the_message.emp_id}", { :alert => the_message.errors.full_messages.to_sentence })
       end
     end
-
+    def signdisc
+      the_id = params.fetch("path_id")
+      the_discipline = Discipline.where({ :id => the_id }).at(0)
+  
+      the_discipline.fasign=params.fetch("query_signature")
+  
+      if the_discipline.valid?
+        the_discipline.save
+        redirect_to(request.referer { :notice => "Discipline updated successfully."} )
+      else
+        redirect_to(request.referer)
+      end
+    end
 
   def authorize_fa_access
     Rails.logger.debug "Current user: #{current_user.inspect}"

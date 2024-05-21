@@ -65,7 +65,6 @@ class DisciplinesController < ApplicationController
 
 <p>Please feel free to reach out to me if you have any questions or need additional support.</p>
 <br>
-<br>
 Thank you.
 
 HTML

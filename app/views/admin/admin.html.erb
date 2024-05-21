@@ -1,3 +1,20 @@
+ <div class="container">
+  <h2>Hello, <%=current_user.employee.first_name%>!
+
+<%if @list_of_resched.count >0 or @list_of_ffms.count>0 %>
+<div class="alert alert-warning" role="alert">
+Today's to-do list:
+<ul>
+  <li>You have <%=@list_of_ffms.count%> FFM(s) requiring conclusions</li>
+  <li>You have <%=@list_of_resched.count%> FFM(s) reschedule requests</li>  
+</ul>
+ </div>
+ <%else%>
+<div class="alert alert-success" role="alert">
+Nothing to do here!
+ </div>
+ <%end%>
+  
   <h2> Pending Conclusions (<%=@list_of_ffms.count%>)</h2>
   
   <div>
@@ -44,7 +61,9 @@
       <% end %>
     </table>
   </div>
+<br>
 
+<h2> Reschedule Requests (<%=@list_of_resched.count%>)</h2>
     <div>
     <table class="table table-striped">
       <tr>
@@ -201,4 +220,5 @@
       </button>
     </form>
   </div>
+</div>
 </div>

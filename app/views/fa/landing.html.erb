@@ -48,7 +48,7 @@
 </div>
 <hr>
 
-
+<div class="container">
 <h2>Active Discipline</h2>
         <div>
       <% if @max_disciplines.present? %>
@@ -126,14 +126,15 @@ You have <%=@list_of_disciplines.where(fasign: [nil, '']).count%> disciplinary r
       </tr>
       <% end %>
     </table>
+    <hr>
   </div>
 </div>
 
-<hr>
-
-<h3>Expired Discipline</h3>
 
 <div class="container">
+<h3>Expired Discipline</h3>
+
+
   <div>
     <table class="table table-striped">
       <tr>
@@ -182,5 +183,5 @@ You have <%=@list_of_disciplines.where(fasign: [nil, '']).count%> disciplinary r
     </table>
   </div>
 </div>
-
+</div>
   

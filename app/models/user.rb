@@ -18,10 +18,14 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+
+  belongs_to :employee, optional: true, class_name: 'Employee', primary_key: :emp_id, foreign_key: :emp_id
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :employee, class_name: 'Employee', primary_key: :emp_id, foreign_key: :emp_id
+validates :email, presence: true, uniqueness: true
+
+
 end

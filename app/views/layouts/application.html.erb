@@ -12,11 +12,12 @@
 
 
   </head>
+  <% if current_user.present?%>
   <% if current_user.employee.access=="SUP"%>
   <nav>
     <div class="topnav">
-  <a class="active" href="/employees">Employees</a>
-  <a href="/admin">Admin</a>
+    <a class="active" href="/admin">Admin</a>
+  <a href="/employees">Employees</a>
   <a href="/users/sign_out">Sign Out</a>
   </nav>
   <%else%>
@@ -27,6 +28,7 @@
   <a href="/users/sign_out">Sign Out</a>
   </div>
 </nav>
+<%end%>
 <%end%>
 
 

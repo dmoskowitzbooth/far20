@@ -33,16 +33,6 @@ class FactFindingsController < ApplicationController
       # Save the FactFinding object to get its ID
       the_fact_finding.save
   
-      # Create and save the associated Note
-      note = Note.new(
-        emp_id: params.fetch("query_emp_id"),
-        sup_id: params.fetch("query_sup_id"),
-        title: "FFM Scheduled",
-        date: Date.today,
-        note: "FFM scheduled to discuss #{params.fetch("query_to_discuss")}."
-      )
-      note.save
-  
       # Create and save the associated Message
       msg = Message.new
         msg.emp_id=params.fetch("query_emp_id")

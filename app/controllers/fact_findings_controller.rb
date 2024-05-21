@@ -118,6 +118,15 @@ class FactFindingsController < ApplicationController
     end
   end
 
+  def mtgnotes
+    the_id = params.fetch("path_id")
+    the_fact_finding = FactFinding.where({ :id => the_id }).at(0)
+
+    the_fact_finding.notes=params.fetch("query_notes")
+    the_fact_finding.save
+    redirect_to("/fact_findings/#{the_fact_finding.id}", { :notice => "Meeting notes added."} )
+  end
+
   def destroy
     the_id = params.fetch("path_id")
     the_fact_finding = FactFinding.where({ :id => the_id }).at(0)

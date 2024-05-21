@@ -3,15 +3,15 @@
 
 <%if @list_of_resched.count >0 or @list_of_ffms.count>0 %>
 <div class="alert alert-warning" role="alert">
-Today's to-do list:
+<h4 class="alert-heading">Today's to-do list:</h4>
 <ul>
-  <li>You have <%=@list_of_ffms.count%> FFM(s) requiring conclusions</li>
-  <li>You have <%=@list_of_resched.count%> FFM(s) reschedule requests</li>  
+  <li style="font-size: 0.6em;">You have <%=@list_of_ffms.count%> FFM(s) requiring conclusions</li>
+  <li style="font-size: 0.6em;">You have <%=@list_of_resched.count%> FFM(s) reschedule requests</li>
 </ul>
  </div>
  <%else%>
 <div class="alert alert-success" role="alert">
-Nothing to do here!
+<h4 class="alert-heading">Nothing to do here!</h4>
  </div>
  <%end%>
   
@@ -24,6 +24,10 @@ Nothing to do here!
           Date
         </th>
 
+           <th>
+          FA
+        </th>
+
         <th>
           To Discuss
         </th>
@@ -32,18 +36,18 @@ Nothing to do here!
           FA Response
         </th>
 
-        <th>
-          Notes
-        </th>
+     
 
       <% @list_of_ffms.each do |a_ffm| %>
       <tr>
         <td>
           <a href="/fact_findings/<%= a_ffm.id %>">
-            <%= a_ffm.date %> <%= a_ffm.time %> 
+            <%= a_ffm.date.strftime("%-m/%-d/%y") %> <%= a_ffm.time.strftime("%H:%M") %>
           </a>
         </td>
-
+   <td>
+          <%= a_ffm.employee.first_name %> <%= a_ffm.employee.last_name %>
+        </td>
         <td>
           <%= a_ffm.to_discuss %>
         </td>
@@ -54,9 +58,7 @@ Nothing to do here!
           Awaiting Response
           <%end%>
         </td>
-        <td>
-          <%= a_ffm.notes %>
-        </td>
+ 
       </tr>
       <% end %>
     </table>
@@ -71,6 +73,10 @@ Nothing to do here!
           Date
         </th>
 
+      <th>
+          FA
+        </th>
+
         <th>
           To Discuss
         </th>
@@ -79,16 +85,18 @@ Nothing to do here!
           FA Response
         </th>
 
-        <th>
-          Notes
-        </th>
+ 
 
       <% @list_of_resched.each do |a_ffm| %>
       <tr>
         <td>
           <a href="/fact_findings/<%= a_ffm.id %>">
-            <%= a_ffm.date %> <%= a_ffm.time %> 
+            <%= a_ffm.date.strftime("%-m/%-d/%y") %> <%= a_ffm.time.strftime("%H:%M") %>
           </a>
+        </td>
+
+   <td>
+          <%= a_ffm.employee.first_name %> <%= a_ffm.employee.last_name %>
         </td>
 
         <td>
@@ -101,9 +109,7 @@ Nothing to do here!
           Awaiting Response
           <%end%>
         </td>
-        <td>
-          <%= a_ffm.notes %>
-        </td>
+     
       </tr>
       <% end %>
     </table>

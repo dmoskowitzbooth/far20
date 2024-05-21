@@ -101,7 +101,7 @@ footer {
       <div>
        <p> <em>By e-signing this PCR, I confirm my understanding of the reasons for the disciplinary action and expectations for sustained improvement. I further understand that failrue to comply with these expectations is grounds for further disciplinary action up to and including termination.</em></p>
        <%if @the_discipline.fasign.present?%>
-      <strong>This PCR was electronically signed by <%=current_user.employee.first_name%> <%=current_user.employee.first_name%> on <%= @the_discipline.updated_at%>.</strong>
+      <strong>This PCR was electronically signed by <%=current_user.employee.first_name%> <%=current_user.employee.last_name%> on <%= @the_discipline.updated_at%>.</strong>
       <%else%>
       <form action="/sign_discipline/<%= @the_discipline.id %>"  method="post" >
         <label for="signature_box">

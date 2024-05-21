@@ -222,6 +222,9 @@
           Issued By
         </th>
 
+           <th>
+          Signature
+        </th>
       </tr>
 
       <% @list_of_disciplines.each do |a_discipline| %>
@@ -250,11 +253,19 @@
           <%= a_discipline.supervisor.last_name %>
         </td>
 
-        <td>
-        
+     
+             <%if a_discipline.fasign.present?%>
+            <td>
+          Signed
         </td>
-      </tr>
+      <%else%>
+           <td>
+          <strong style="color: red">Awaiting Signature</strong>
+        </td>
+      <%end%>
+        </td>
       <% end %>
+      </tr>
     </table>
   </div>
 </div>

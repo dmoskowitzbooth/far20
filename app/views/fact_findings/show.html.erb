@@ -12,10 +12,12 @@
 
     <dl>
       <dt>
-        Emp
+        Employee
       </dt>
       <dd>
+        <a href="/employees/<%= @the_fact_finding.emp_id %>">
         <%= @the_fact_finding.employee.first_name %> <%= @the_fact_finding.employee.last_name %>
+        </a>
       </dd>
 
       <dt>

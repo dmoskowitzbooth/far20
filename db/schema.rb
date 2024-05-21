@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_20_212915) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_21_002348) do
   create_table "disciplines", force: :cascade do |t|
     t.integer "emp_id"
     t.integer "sup_id"
@@ -53,6 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_20_212915) do
     t.datetime "updated_at", null: false
     t.string "conclusion"
     t.string "response"
+    t.date "date2"
+    t.time "time2"
   end
 
   create_table "messages", force: :cascade do |t|

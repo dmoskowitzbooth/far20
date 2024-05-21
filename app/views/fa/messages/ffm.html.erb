@@ -34,27 +34,54 @@
     <h4>
       Status
     </h4>
-  
+  <%if @the_message.subject.include?("FFM")%>
     <% if @the_ffm.response.present? %>
     Response: <%=@the_ffm.response%>
       <%else%>
    <form action="/read_message/<%= @the_message.id %>"  method="post" >
                   <div class="form-check">
                      <div class="form-check">
-        <label for="read_box">
+        <label for="resp_box">
           Response
         </label>
-
-        <select id="response_box" name="query_response">
+      <%if @the_ffm.date2.present?%>
+        <select id="resp_box" name="query_response">
+         <option>Accept Meeting</option>
+          <option>Decline Meeting</option>
+          </select>
+        <%else%>
+        <select id="resp_box" name="query_response">
          <option>Accept Meeting</option>
           <option>Decline Meeting</option>
           <option>Request Reschedule</option>
           </select>
-      </div>
-            <button>
+        <button>
         Update
       </button>
     </form>
+        <%end%>
+      <%end%>
+    <%end%>
+  <%if @the_message.subject.include?("Disciplinary")%>
+    <% if @the_message.read="true" %>
+    Read
+      <%else%>
+   <form action="/read_message/<%= @the_message.id %>"  method="post" >
+                  <div class="form-check">
+                     <div class="form-check">
+        <label for="read_box">
+          Status
+        </label>
+        <select id="read_box" name="query_read">
+         <option>Unread</option>
+          <option>Read</option>
+          </select>
+    
+        <button>
+        Update
+      </button>
+    </form>
+    <%end%>
     <%end%>
   </div>
 </div>

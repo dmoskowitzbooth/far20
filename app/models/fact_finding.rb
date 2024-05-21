@@ -5,9 +5,11 @@
 #  id         :integer          not null, primary key
 #  conclusion :string
 #  date       :date
+#  date2      :date
 #  notes      :string
 #  response   :string
 #  time       :time
+#  time2      :time
 #  to_discuss :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

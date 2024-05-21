@@ -1,3 +1,95 @@
+  <h2> Pending Conclusions (<%=@list_of_ffms.count%>)</h2>
+  
+  <div>
+    <table class="table table-striped">
+      <tr>
+        <th>
+          Date
+        </th>
+
+        <th>
+          To Discuss
+        </th>
+
+           <th>
+          FA Response
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+      <% @list_of_ffms.each do |a_ffm| %>
+      <tr>
+        <td>
+          <a href="/fact_findings/<%= a_ffm.id %>">
+            <%= a_ffm.date %> <%= a_ffm.time %> 
+          </a>
+        </td>
+
+        <td>
+          <%= a_ffm.to_discuss %>
+        </td>
+            <td>
+          <%if a_ffm.response.present? %>
+          <%= a_ffm.response %>
+          <%else%>
+          Awaiting Response
+          <%end%>
+        </td>
+        <td>
+          <%= a_ffm.notes %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+    <div>
+    <table class="table table-striped">
+      <tr>
+        <th>
+          Date
+        </th>
+
+        <th>
+          To Discuss
+        </th>
+
+           <th>
+          FA Response
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+      <% @list_of_resched.each do |a_ffm| %>
+      <tr>
+        <td>
+          <a href="/fact_findings/<%= a_ffm.id %>">
+            <%= a_ffm.date %> <%= a_ffm.time %> 
+          </a>
+        </td>
+
+        <td>
+          <%= a_ffm.to_discuss %>
+        </td>
+            <td>
+          <%if a_ffm.response.present? %>
+          <%= a_ffm.response %>
+          <%else%>
+          Awaiting Response
+          <%end%>
+        </td>
+        <td>
+          <%= a_ffm.notes %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
 <div class="container">
   <div class="form" style="width: 75%">
     <h2>

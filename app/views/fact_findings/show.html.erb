@@ -111,6 +111,23 @@
 
         <input type="time" id="time_box" name="query_time" value="<%= @the_fact_finding.time %>">
       </div>
+<% if @the_fact_finding.response = "Request Reschedule"%>
+          <div>
+        <label for="date2_box">
+          Rescheduled Date
+        </label>
+
+        <input type="date" id="date_box2" name="query_date2">
+      </div>
+
+      <div>
+        <label for="time2_box">
+          Rescheduled Time
+        </label>
+
+        <input type="time" id="time2_box" name="query_time2">
+      </div>
+      <%end%>
 
       <div>
         <label for="sup_id_box">
@@ -135,6 +152,10 @@
 
         <input type="text" id="to_discuss_box" name="query_to_discuss" value="<%= @the_fact_finding.to_discuss %>">
       </div>
+
+          
+
+    
 
       <button>
         Update fact finding

@@ -110,11 +110,11 @@ Updated: <%= @the_fact_finding.time2.strftime("%H:%M") %>
     <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
         Edit Fact Finding Meeting
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
      <div>
     <h3>
@@ -277,7 +277,7 @@ Updated: <%= @the_fact_finding.time2.strftime("%H:%M") %>
           Title for
         </label>
 
-        <input type="text" id="title_for_box" name="query_title_for" class="form-control" style="width: 100%" value="<%=@the_fact_finding.to_discuss%>">
+        <input type="text" id="title_for_box" name="query_title_for" class="form-control" id="validationDefault01" required  style="width: 100%" value="<%=@the_fact_finding.to_discuss%>">
       </div>
       </div>
 
@@ -287,7 +287,7 @@ Updated: <%= @the_fact_finding.time2.strftime("%H:%M") %>
           Effective
         </label>
 
-        <input type="date" id="effective_box" name="query_effective" class="form-control">
+        <input type="date" id="effective_box" name="query_effective" class="form-control" id="validationDefault01" required>
       </div>
 
       <div class="col"> 
@@ -295,7 +295,7 @@ Updated: <%= @the_fact_finding.time2.strftime("%H:%M") %>
           Expires
         </label>
 
-        <input type="date" id="expires_box" name="query_expires" class="form-control">
+        <input type="date" id="expires_box" name="query_expires" class="form-control" id="validationDefault01" required>
       </div>
 </div>
       <div>
@@ -303,7 +303,7 @@ Updated: <%= @the_fact_finding.time2.strftime("%H:%M") %>
           Reason
         </label>
 
-        <textarea id="reason_box" name="query_reason" class="form-control"></textarea>
+        <textarea id="reason_box" id="validationDefault01" required name="query_reason" class="form-control"></textarea>
       </div>
 
       <div>
@@ -311,7 +311,7 @@ Updated: <%= @the_fact_finding.time2.strftime("%H:%M") %>
           Expectations
         </label>
 
-        <textarea id="expectations_box" name="query_expectations" class="form-control"></textarea>
+        <textarea id="expectations_box" name="query_expectations" class="form-control" id="validationDefault01" required></textarea>
       </div>
 
       <div>

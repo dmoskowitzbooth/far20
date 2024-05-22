@@ -56,9 +56,9 @@ class FactFindingsController < ApplicationController
       msg.ffm_id = the_fact_finding.id
       msg.save
   
-      redirect_to("/fact_findings", { notice: "Fact finding created successfully." })
+      redirect_to(request.referer, { notice: "Fact finding created successfully." })
     else
-      redirect_to("/fact_findings", { alert: the_fact_finding.errors.full_messages.to_sentence })
+      redirect_to(request.referer, { alert: the_fact_finding.errors.full_messages.to_sentence })
     end
   end
 
@@ -76,7 +76,6 @@ class FactFindingsController < ApplicationController
     the_fact_finding.date = params.fetch("query_date")
     the_fact_finding.time = params.fetch("query_time")
     the_fact_finding.sup_id = params.fetch("query_sup_id")
-    the_fact_finding.notes = params.fetch("query_notes")
     the_fact_finding.to_discuss = params.fetch("query_to_discuss")
     the_fact_finding.date2 = params.fetch("query_date2")
     the_fact_finding.time2 = params.fetch("query_time2")

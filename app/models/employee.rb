@@ -17,9 +17,10 @@
 #  emp_id     :integer
 #
 class Employee < ApplicationRecord
-  validates :emp_id, uniqueness: true
-  after_create :create_user
 
+  validates :emp_id, uniqueness: true
+  
+  after_create :create_user
 
   private
   def create_user
@@ -38,4 +39,6 @@ class Employee < ApplicationRecord
 
   has_many :notes_as_employee, class_name: 'Note', primary_key: :emp_id, foreign_key: :emp_id
   has_many :notes_as_supervisor, class_name: 'Note', primary_key: :emp_id, foreign_key: :sup_id
+
+  mount_uploader :image, ImageUploader
 end

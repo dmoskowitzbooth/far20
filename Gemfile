@@ -12,6 +12,8 @@ gem 'kaminari'
 gem 'bootstrap'
 gem 'popper_js'
 gem 'dartsass-sprockets'
+gem "carrierwave"
+gem "cloudinary"
 
 
 # Use postgresql as the database for Active Record

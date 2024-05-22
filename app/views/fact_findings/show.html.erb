@@ -2,7 +2,11 @@
 <div>
   <div>
     <h1>
+    <%if@the_fact_finding.date2.present?%>
+      FFM: <%= @the_fact_finding.employee.first_name %> <%= @the_fact_finding.employee.last_name %> on <%= @the_fact_finding.date2.strftime("%-m/%-d/%y") %>
+    <%else%>
       FFM: <%= @the_fact_finding.employee.first_name %> <%= @the_fact_finding.employee.last_name %> on <%= @the_fact_finding.date.strftime("%-m/%-d/%y") %>
+    <%end%>
     </h1>
 
     <div>
@@ -24,14 +28,26 @@
         Date
       </dt>
       <dd>
-        <%= @the_fact_finding.date.strftime("%-m/%-d/%y") %>
+            <%if@the_fact_finding.date2.present?%>
+Updated: <%= @the_fact_finding.date2.strftime("%-m/%-d/%y") %>
+<br>
+<i>Original: <%= @the_fact_finding.date.strftime("%-m/%-d/%y") %></i>
+    <%else%>
+<%= @the_fact_finding.date.strftime("%-m/%-d/%y") %>
+    <%end%>
       </dd>
  
       <dt>
         Time
       </dt>
       <dd>
-        <%= @the_fact_finding.time.strftime("%H:%M") %>
+               <%if@the_fact_finding.date2.present?%>
+Updated: <%= @the_fact_finding.time2.strftime("%H:%M") %>
+<br>
+<i>Original: <%= @the_fact_finding.time.strftime("%H:%M") %></i>
+    <%else%>
+<%= @the_fact_finding.time.strftime("%H:%M") %>
+    <%end%>
       </dd>
 
       <dt>

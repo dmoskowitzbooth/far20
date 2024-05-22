@@ -58,13 +58,13 @@ class DisciplinesController < ApplicationController
 
     msg.message= <<~HTML
 
-
+<br>
     <p>Based on a review of your employee records and actions, you have been issued a #{level} for #{discfor}</p>
 
 <p>You can review the full details of this disciplinary action by visiting the Active Discipline section of your employee profile. As a reminder, disciplinary actions remain active for 365 days from the effective date.</p>
 
 <p>Please feel free to reach out to me if you have any questions or need additional support.</p>
-<br>
+
 Thank you.
 
 HTML

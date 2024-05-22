@@ -1,6 +1,8 @@
  <div class="container">
+ 
   <h2>Hello, <%=current_user.employee.first_name%>!
-
+<br>
+<br>
 <%if @list_of_resched.count >0 or @list_of_ffms.count>0 %>
 <div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">Today's to-do list:</h4>
@@ -129,7 +131,7 @@
     <h2>
       Add a new employee
     </h2>
-    <form action="/insert_employee" method="post">
+    <form action="/insert_employee" method="post" enctype="multipart/form-data">
             <div class="row g-3">
     <div class="col-sm">
       <label for="first_name_box">First name</label>
@@ -227,7 +229,7 @@
           Image
         </label>
 
-        <input type="text" id="image_box" class="form-control" name="query_image">
+        <input type="file" id="image_box" class="form-control" name="query_image">
       </div>
 
       <button type="submit" class="btn btn-primary">

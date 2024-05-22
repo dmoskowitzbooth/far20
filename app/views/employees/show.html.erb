@@ -710,7 +710,7 @@
       Edit employee
     </h2>
 
-    <form action="/modify_employee/<%= @the_employee.emp_id %>"  method="post" >
+    <form action="/modify_employee/<%= @the_employee.emp_id %>"  method="post" enctype="multipart/form-data">
   
       <div class="row g-3">
     <div class="col-sm">
@@ -814,7 +814,7 @@
           Image
         </label>
 
-        <input type="text" id="image_box" class="form-control" name="query_image" value="<%= @the_employee.image %>">
+        <input type="file" id="image_box" class="form-control" name="query_image" value="<%= @the_employee.image %>">
       </div>
 
       <button type="submit" class="btn btn-primary">

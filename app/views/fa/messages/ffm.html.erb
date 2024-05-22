@@ -63,7 +63,7 @@
       <%end%>
     <%end%>
   <%if @the_message.subject.include?("Disciplinary")%>
-    <% if @the_message.read="true" %>
+    <% if @the_message.read=="true" %>
     Read
       <%else%>
    <form action="/read_message/<%= @the_message.id %>"  method="post" >

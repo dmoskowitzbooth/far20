@@ -19,7 +19,11 @@
 <div class="container text-start">
   <div class="row justify-content-center">
     <div class="col-3">
-      <img src="<%= @the_employee.image %>" style="width:250px;" class="img-fluid">
+    <%if @the_employee.image.present?%>
+    <img src="<%= @the_employee.image %>" style="width:250px;" class="img-fluid">
+    <%else%>
+      <img src="<%= @the_employee.defaultimg %>" style="width:250px;" class="img-fluid">
+      <%end%>
     </div>
     <div class="col-3">
       <dl>

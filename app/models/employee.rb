@@ -5,6 +5,7 @@
 #  id         :integer          not null, primary key
 #  access     :string
 #  base       :string
+#  defaultimg :string
 #  doh        :string
 #  email      :string
 #  first_name :string

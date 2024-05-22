@@ -135,17 +135,17 @@
             <div class="row g-3">
     <div class="col-sm">
       <label for="first_name_box">First name</label>
-      <input type="text" id="first_name_box" class="form-control" name="query_first_name" >
+      <input type="text" id="first_name_box" class="form-control" name="query_first_name" id="validationDefault01" required>
     </div>
 
     <div class="col-sm-5">
       <label for="last_name_box">Last name</label>
-      <input type="text" id="last_name_box" class="form-control" name="query_last_name" >
+      <input type="text" id="last_name_box" class="form-control" name="query_last_name" id="validationDefault01" required >
     </div>
 
     <div class="col-sm-2">
       <label for="emp_id_box">Employee ID</label>
-      <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" ">
+      <input type="text" id="emp_id_box" name="query_emp_id" class="form-control" id="validationDefault01" required>
     </div>
   </div>
   
@@ -156,7 +156,7 @@
           Phone
         </label>
 
-        <input type="text" id="phone_box" class="form-control"  name="query_phone">
+        <input type="text" id="phone_box" class="form-control"  name="query_phone" id="validationDefault01" required >
       </div>
 
         <div class="col">
@@ -164,7 +164,7 @@
           Email
         </label>
 
-        <input type="text" id="email_box" class="form-control"  name="query_email">
+        <input type="text" id="email_box" class="form-control"  name="query_email" id="validationDefault01" required >
       </div>
       </div>
 
@@ -174,7 +174,7 @@
           Base
         </label>
 
-        <select id="base_box" name="query_base" class="form-select" style="width: 100%">
+        <select id="base_box" name="query_base" class="form-select" id="validationDefault04" required style="width: 100%">
          <option>CHI</option>
          <option>DEN</option>
           <option>DFW</option>
@@ -193,7 +193,7 @@
           Position
         </label>
 
-      <select id="position_box" name="query_position" class="form-select">
+      <select id="position_box" id="validationDefault04" required name="query_position" class="form-select">
          <option >FA</option>
           <option >SUP</option>
           </select>
@@ -205,7 +205,7 @@
           Access
         </label>
 
-       <select id="access_box" name="query_access" class="form-select">
+       <select id="access_box" name="query_access" class="form-select" id="validationDefault04" required>
          <option >FA</option>
           <option>SUP</option>
           </select>
@@ -219,7 +219,7 @@
           DOH
         </label>
 
-        <input type="date" class="form-control" id="doh_box" name="query_doh">
+        <input type="date" id="validationDefault01" required class="form-control" id="doh_box" name="query_doh">
       </div>
 </div>
  
@@ -229,7 +229,7 @@
           Image
         </label>
 
-        <input type="file" id="image_box" class="form-control" name="query_image">
+        <input type="file" id="image_box" class="form-control" name="query_image" id="validationDefault01" required>
       </div>
 
       <button type="submit" class="btn btn-primary">

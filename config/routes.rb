@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+
   # Routes for the Fact finding resource:
 
   # CREATE
@@ -103,8 +102,7 @@ Rails.application.routes.draw do
 
   #------------------------------
     Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+
   # Routes for the Fact finding resource:
 
   # CREATE

@@ -1,6 +1,6 @@
 databases:
   - name: fars
-    databaseName: mysite
+    databaseName: db
     user: mysite
     plan: free
 

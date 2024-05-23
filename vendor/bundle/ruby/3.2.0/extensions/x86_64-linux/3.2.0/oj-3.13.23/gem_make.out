@@ -10,10 +10,10 @@ checking for rb_hash_bulk_insert() in ruby.h... yes
 creating Makefile
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/oj-3.13.23/ext/oj
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-w2fmau sitelibdir\=./.gem.20240523-27227-w2fmau clean
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-vxudu2 sitelibdir\=./.gem.20240523-32244-vxudu2 clean
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/oj-3.13.23/ext/oj
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-w2fmau sitelibdir\=./.gem.20240523-27227-w2fmau
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-vxudu2 sitelibdir\=./.gem.20240523-32244-vxudu2
 compiling cache.c
 compiling cache8.c
 compiling circarray.c
@@ -64,8 +64,8 @@ compiling wab.c
 linking shared-object oj/oj.so
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/oj-3.13.23/ext/oj
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-w2fmau sitelibdir\=./.gem.20240523-27227-w2fmau install
-/usr/bin/install -m 0755 oj.so ./.gem.20240523-27227-w2fmau/oj
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-vxudu2 sitelibdir\=./.gem.20240523-32244-vxudu2 install
+/usr/bin/install -m 0755 oj.so ./.gem.20240523-32244-vxudu2/oj
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/oj-3.13.23/ext/oj
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-w2fmau sitelibdir\=./.gem.20240523-27227-w2fmau clean
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-vxudu2 sitelibdir\=./.gem.20240523-32244-vxudu2 clean

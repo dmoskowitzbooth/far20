@@ -3,17 +3,17 @@ current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug-1.7.2/e
 creating Makefile
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug-1.7.2/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-mf9eox sitelibdir\=./.gem.20240523-27227-mf9eox clean
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-7qrlb3 sitelibdir\=./.gem.20240523-32244-7qrlb3 clean
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug-1.7.2/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-mf9eox sitelibdir\=./.gem.20240523-27227-mf9eox
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-7qrlb3 sitelibdir\=./.gem.20240523-32244-7qrlb3
 compiling debug.c
 compiling iseq_collector.c
 linking shared-object debug/debug.so
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug-1.7.2/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-mf9eox sitelibdir\=./.gem.20240523-27227-mf9eox install
-/usr/bin/install -m 0755 debug.so ./.gem.20240523-27227-mf9eox/debug
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-7qrlb3 sitelibdir\=./.gem.20240523-32244-7qrlb3 install
+/usr/bin/install -m 0755 debug.so ./.gem.20240523-32244-7qrlb3/debug
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug-1.7.2/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-mf9eox sitelibdir\=./.gem.20240523-27227-mf9eox clean
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-7qrlb3 sitelibdir\=./.gem.20240523-32244-7qrlb3 clean

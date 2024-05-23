@@ -3,16 +3,16 @@ current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug_inspect
 creating Makefile
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug_inspector-1.1.0/ext/debug_inspector
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-6xi6h6 sitelibdir\=./.gem.20240523-27227-6xi6h6 clean
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-8w4g9r sitelibdir\=./.gem.20240523-32244-8w4g9r clean
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug_inspector-1.1.0/ext/debug_inspector
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-6xi6h6 sitelibdir\=./.gem.20240523-27227-6xi6h6
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-8w4g9r sitelibdir\=./.gem.20240523-32244-8w4g9r
 compiling debug_inspector.c
 linking shared-object debug_inspector.so
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug_inspector-1.1.0/ext/debug_inspector
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-6xi6h6 sitelibdir\=./.gem.20240523-27227-6xi6h6 install
-/usr/bin/install -m 0755 debug_inspector.so ./.gem.20240523-27227-6xi6h6
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-8w4g9r sitelibdir\=./.gem.20240523-32244-8w4g9r install
+/usr/bin/install -m 0755 debug_inspector.so ./.gem.20240523-32244-8w4g9r
 
 current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/debug_inspector-1.1.0/ext/debug_inspector
-make DESTDIR\= sitearchdir\=./.gem.20240523-27227-6xi6h6 sitelibdir\=./.gem.20240523-27227-6xi6h6 clean
+make DESTDIR\= sitearchdir\=./.gem.20240523-32244-8w4g9r sitelibdir\=./.gem.20240523-32244-8w4g9r clean

@@ -14,6 +14,7 @@ gem 'dartsass-sprockets'
 gem "carrierwave"
 gem "cloudinary"
 gem 'therubyracer', platforms: :ruby
+gem 'execjs'
 
 
 # Use postgresql as the database for Active Record

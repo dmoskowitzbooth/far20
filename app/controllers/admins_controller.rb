@@ -8,6 +8,7 @@ class AdminsController < ApplicationController
     resched_ffms=FactFinding.where({ :sup_id => sup }).where(response: 'Request Reschedule')
     @list_of_resched=resched_ffms.order({:date => :asc})
     
+
     render({ :template => "admin/admin" })
 
 

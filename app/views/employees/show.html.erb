@@ -550,7 +550,11 @@
       <tr>
         <td>
           <a href="/fact_findings/<%= a_ffm.id %>">
+          <% if a_ffm.date2.present?%>
+           <%= a_ffm.date2.strftime("%-m/%-d/%y") %> <%= a_ffm.time2.strftime("%H:%M") %>
+           <%else%>
            <%= a_ffm.date.strftime("%-m/%-d/%y") %> <%= a_ffm.time.strftime("%H:%M") %>
+           <%end%>
           </a>
         </td>
 
@@ -601,8 +605,12 @@
       <% @list_of_ffms_exp.each do |a_ffm| %>
       <tr>
         <td>
-          <a href="/fact_findings/<%= a_ffm.id %>">
-             <%= a_ffm.date.strftime("%-m/%-d/%y") %> <%= a_ffm.time.strftime("%H:%M") %>
+           <a href="/fact_findings/<%= a_ffm.id %>">
+          <% if a_ffm.date2.present?%>
+           <%= a_ffm.date2.strftime("%-m/%-d/%y") %> <%= a_ffm.time2.strftime("%H:%M") %>
+           <%else%>
+           <%= a_ffm.date.strftime("%-m/%-d/%y") %> <%= a_ffm.time.strftime("%H:%M") %>
+           <%end%>
           </a>
         </td>
 

@@ -41,8 +41,6 @@ class FactFindingsController < ApplicationController
         msg.read= "false"
         msg.message= <<~HTML
           <br>
-          <p> As requested, your FFM that was initially scheduled for #{params.fetch("query_date")} at #{params.fetch("query_time")} Base Local Time has been rescheduled and ammended. The updated details can be found below:
-
           <p>In accordance with the Collective Bargaining Agreement (CBA), Article 18, Section B.1, a Fact-Finding Meeting has been scheduled for you to attend on <strong> #{params.fetch("query_date")} at #{params.fetch("query_time")}</strong> Base Local Time to discuss #{params.fetch("query_to_discuss")}.  Please confirm receipt of this notice and inform leadership of your intentions to attend or decline the meeting or request a one-time reschedule using the dropdown above. </p>
           <p>This meeting will take place in person at your base. This meeting will be attended by Inflight Leadership. </p>
           <p>If you need to reschedule for any reason, we will do a one time reschedule.  These meetings can only be scheduled on one of your days off and are typically not scheduled on weekends.</p>

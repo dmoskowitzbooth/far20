@@ -7,8 +7,12 @@
 <div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">Today's to-do list:</h4>
 <ul>
+<%if @list_of_ffms.count >0%>
   <li style="font-size: 0.6em;">You have <%=@list_of_ffms.count%> FFM(s) requiring conclusions</li>
+  <%end%>
+  <%if @list_of_resched.count >0%>
   <li style="font-size: 0.6em;">You have <%=@list_of_resched.count%> FFM(s) reschedule requests</li>
+  <%end%>
 </ul>
  </div>
  <%else%>
@@ -116,6 +120,7 @@
       <% end %>
     </table>
   </div>
+
     <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo">

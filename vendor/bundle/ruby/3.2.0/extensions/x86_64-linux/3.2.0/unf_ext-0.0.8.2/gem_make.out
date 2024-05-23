@@ -1,0 +1,19 @@
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+/home/student/.rvm/rubies/ruby-3.2.1/bin/ruby -I /home/student/.rvm/rubies/ruby-3.2.1/lib/ruby/3.2.0 extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20240523-27227-9uvlu4 sitelibdir\=./.gem.20240523-27227-9uvlu4 clean
+
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20240523-27227-9uvlu4 sitelibdir\=./.gem.20240523-27227-9uvlu4
+compiling unf.cc
+linking shared-object unf_ext.so
+
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20240523-27227-9uvlu4 sitelibdir\=./.gem.20240523-27227-9uvlu4 install
+/usr/bin/install -m 0755 unf_ext.so ./.gem.20240523-27227-9uvlu4
+
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20240523-27227-9uvlu4 sitelibdir\=./.gem.20240523-27227-9uvlu4 clean

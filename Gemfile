@@ -15,6 +15,7 @@ gem "carrierwave"
 gem "cloudinary"
 gem 'therubyracer', platforms: :ruby
 gem 'execjs'
+gem 'simple_form'
 
 
 # Use postgresql as the database for Active Record

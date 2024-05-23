@@ -16,7 +16,7 @@ gem "cloudinary"
 gem 'therubyracer', platforms: :ruby
 gem 'execjs'
 gem 'simple_form'
-gem 'activeadmin'
+
 
 
 # Use postgresql as the database for Active Record

@@ -222,6 +222,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    libv8 (3.16.14.19.1-x86_64-linux)
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
@@ -321,6 +322,7 @@ GEM
       i18n
     rchardet (1.8.0)
     redis (4.8.1)
+    ref (2.0.0)
     regexp_parser (2.8.0)
     reline (0.3.3)
       io-console (~> 0.5)
@@ -396,6 +398,9 @@ GEM
       unicode-display_width (~> 2.2)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
@@ -486,6 +491,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stimulus-rails
   table_print
+  therubyracer
   turbo-rails
   tzinfo-data
   web-console

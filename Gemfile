@@ -13,6 +13,7 @@ gem 'popper_js'
 gem 'dartsass-sprockets'
 gem "carrierwave"
 gem "cloudinary"
+gem 'therubyracer', platforms: :ruby
 
 
 # Use postgresql as the database for Active Record

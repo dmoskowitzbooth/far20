@@ -1,0 +1,46 @@
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/therubyracer-0.12.3/ext/v8
+/home/student/.rvm/rubies/ruby-3.2.1/bin/ruby -I /home/student/.rvm/rubies/ruby-3.2.1/lib/ruby/3.2.0 extconf.rb
+checking for -lpthread... yes
+creating Makefile
+
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/therubyracer-0.12.3/ext/v8
+make DESTDIR\= sitearchdir\=./.gem.20240523-35808-gmtxhw sitelibdir\=./.gem.20240523-35808-gmtxhw clean
+
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/therubyracer-0.12.3/ext/v8
+make DESTDIR\= sitearchdir\=./.gem.20240523-35808-gmtxhw sitelibdir\=./.gem.20240523-35808-gmtxhw
+compiling accessor.cc
+compiling array.cc
+compiling backref.cc
+compiling constants.cc
+compiling constraints.cc
+compiling context.cc
+compiling date.cc
+compiling exception.cc
+compiling external.cc
+compiling function.cc
+compiling gc.cc
+compiling handles.cc
+compiling heap.cc
+compiling init.cc
+compiling invocation.cc
+compiling locker.cc
+compiling message.cc
+compiling object.cc
+compiling primitive.cc
+compiling rr.cc
+compiling script.cc
+compiling signature.cc
+compiling stack.cc
+compiling string.cc
+compiling template.cc
+compiling trycatch.cc
+compiling v8.cc
+compiling value.cc
+linking shared-object v8/init.so
+
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/therubyracer-0.12.3/ext/v8
+make DESTDIR\= sitearchdir\=./.gem.20240523-35808-gmtxhw sitelibdir\=./.gem.20240523-35808-gmtxhw install
+/usr/bin/install -m 0755 init.so ./.gem.20240523-35808-gmtxhw/v8
+
+current directory: /workspaces/far20/vendor/bundle/ruby/3.2.0/gems/therubyracer-0.12.3/ext/v8
+make DESTDIR\= sitearchdir\=./.gem.20240523-35808-gmtxhw sitelibdir\=./.gem.20240523-35808-gmtxhw clean

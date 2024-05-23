@@ -196,7 +196,7 @@ Rails.application.routes.draw do
   resources :employees, only: [:index, :show] # Adjust actions as needed
   resources :disciplines, only: [:index, :show] # Adjust actions as needed
   
-  root to: 'home#index'
+  root to: 'users#sign_in'
 
   # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
 

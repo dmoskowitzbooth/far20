@@ -1,4 +1,11 @@
-# Rails Template
+# Flight Attendant Reporting System (FARS)
+
+The Flight Attendant Reporting System (FARS) is a final project for an introductory application development course. The tool is aimed at solving a real problem: the need for a centralized, automated system for tracking flight attendant performance. The need was realized during my own time managing hundreds of flight attendants. The system used during my time in the role entailed filling in Word templates, saving them as PDFs, sending them via email, and uploading them and adding comments on what happened to the flight attendant's file. If something needed to be changed (i.e. a meeting date), we had to go through the entire process again. Overall, each process took anywhere from 5-15 minutes. This application cuts those processes down to where they can be completed in under 60 seconds. 
+
+A demonstration of the app can be found here: https://www.youtube.com/watch?v=YxPPG4zI2ok.
+
+
+### Behind the scenes information:
 
 This is a base Ruby on Rails repository configured for learning with Codespaces (and Gitpod).
 
